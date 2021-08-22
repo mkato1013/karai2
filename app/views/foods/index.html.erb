@@ -1,0 +1,74 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class="food-contents">
+  <h2 class="food-contents-title">最新のKARAI</h2>
+    <ul class="food-lists">
+      <% @foods.each do |food| %>
+        <li class="list">
+          <div class="food-img-content">
+          <%= link_to food_path(food) do %>
+            <%= image_tag food.image, class: "food-img" if food.image.attached? %>
+            <div class="food-img-info">
+              <h2 class="shop-name">
+              <%= food.shop_name%>
+              </h2>
+              <h2 class="food-name">
+              <%= food.food_name%>
+              </h2>
+              <h3 class="food-spicylevel">
+              <%= food.spicy_level.name%>
+              </h3>
+            </div>
+
+
+          <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="menu-bar">
+
+  <div class="menu-details">
+    <h2 class="menu-content">ホーム</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">メニュー</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">検索</h2>
+    <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "food-search-input" %>
+      <%= form.submit "検索", class: "food-search-btn" %>
+    <% end %>
+  </div>
+  <div class="menu-details">
+    <%= link_to(new_food_path, class: 'postfood-btn') do %>
+      <span class='postfood-btn-text'>！！（KARAI）！！</span>
+      <%= image_tag 'sample.png' , size: '150x150' ,class: "purchase-btn-icon" %>
+    <% end %>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">マイページ</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">AMAI</h2>
+  </div>
+  <div class="menu-details">
+    <ul class='lists-right'>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, user_path(current_user), class: "user-nickname" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+    <% end %>
+    </ul>
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>

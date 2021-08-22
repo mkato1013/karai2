@@ -1,0 +1,160 @@
+<div class="postfood-contents">
+  <header class="postfood-header">
+    KARAI
+  </header>
+
+  <div class="postfood-main">
+    <h2 class="postfood-title">YOUR KARAI</h2>
+    <%= form_with model: @food, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+  
+    <%# 食べ物画像 %>
+    <div class="img-upload">
+      <div class="food-img-text">
+        KARAI画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <%= f.file_field :image, id:"food-image" %>
+      </div>
+      <%= image_tag @food.image.variant(resize: '200x200'), class: 'food-image' if @food.image.attached? %>
+    </div>
+    <%# /食べ物画像 %>
+
+    <%# 食べ物の種類 %>
+    <div class="meal-type">
+      <div class="meal-type-category">カテゴリー
+        <span class="optional">任意</span>
+        <%= f.collection_select(:meal_type_id, MealType.all, :id, :name, {}, {class:"select-box", id:"meal-type-category"}) %>
+      </div>
+    </div>
+    <%# /食べ物の種類 %>
+
+    <%# 店名 %>
+    <div class="shop-name-all">
+      <div class="shop-name">
+        店名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :shop_name, class:"shop-name-text", id:"shop-name", placeholder:"（40文字以内)", maxlength:"40" %>
+      <div class="shop-name-kana">
+        読み方
+        <span class="optional">任意</span>
+      </div>
+      <%= f.text_area :shop_name_kana, class:"shop-name-text", id:"shop-name-kana", placeholder:"（100文字以内)", maxlength:"100" %>
+    </div>
+    <%# /店名 %>
+
+    <%# メニュー名 %>
+    <div class="food-name-all">
+      <div class="food-name">
+        メニュー名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :food_name, class:"food-name-text", id:"food-name", placeholder:"（100文字以内)", maxlength:"100" %>
+    </div>
+    <%# /店名とメニュー名 %>
+
+    <%# 辛さレベル %>
+    <div class="spicy-level">
+      <div class="spicy-level-category">
+        辛さレベル
+        <span class="indispensable">必須</span>
+        <%= f.collection_select(:spicy_level_id, SpicyLevel.all, :id, :name, {}, {class:"select-box", id:"spicy-level-category"}) %>
+      </div>
+    </div>
+    <%# /辛さレベル %>
+
+    <%# 最寄り駅 %>
+    <div class="shop-station">
+      <div class="shop-nearest-station">
+        最寄り駅
+        <span class="optional">任意</span>
+        <%= f.text_area :station, class:"shop-station-text", id:"station", placeholder:"（40文字以内)", maxlength:"40" %>
+      </div>
+    </div>
+    <%# /最寄り駅 %>
+
+    <%# 雰囲気 %>
+    <div class="shop-mood">
+      <div class="shop-mood-category">
+        店内の雰囲気
+        <span class="optional">任意</span>
+        <%= f.collection_select(:shop_mood_id, ShopMood.all, :id, :name, {}, {class:"select-box", id:"shop-mood-category"}) %>
+      </div>
+    </div>
+    <%# /雰囲気 %>
+
+    <%# 待ち時間 %>
+    <div class="waiting-time">
+      <div class="waiting-time-category">
+        待ち時間
+        <span class="optional">任意</span>
+        <%= f.collection_select(:waiting_time_id, WaitingTime.all, :id, :name, {}, {class:"select-box", id:"waiting-time-category"}) %>
+      </div>
+    </div>
+    <%# /雰囲気 %>
+
+    <%# コメント欄 %>
+    <div class="food-comment">
+      <div class="food-comment-text">
+        コメント
+        <span class="optional">任意</span>
+      </div>
+      <%= f.text_area :food_comment, class:"food-comment-text", id:"food-comment", placeholder:"感想（1,000文字以内）（味、値段、他のメニューなど）" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+    <%# /コメント %>
+
+    <%# 下部ボタン %>
+    <div class="postfood-btn-contents">
+      <%= f.submit "！編集！" ,class:"postfood-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+    
+    <% end %>
+  </div>
+
+  <footer class="postfood-footer">
+      ©︎KARAI
+  </footer>
+</div>
+
+<div class="menu-bar">
+
+  <div class="menu-details">
+    <h2 class="menu-content">ホーム</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">メニュー</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">検索</h2>
+  </div>
+  <div class="menu-details">
+    <%= link_to(new_food_path, class: 'postfood-btn') do %>
+      <span class='postfood-btn-text'>！！（KARAI）！！</span>
+      <%= image_tag 'sample.png' , size: '150x150' ,class: "purchase-btn-icon" %>
+    <% end %>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">マイページ</h2>
+  </div>
+  <div class="menu-details">
+    <h2 class="menu-content">AMAI</h2>
+  </div>
+  <div class="menu-details">
+    <ul class='lists-right'>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, user_path(current_user), class: "user-nickname" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+    <% end %>
+    </ul>
+  </div>
+
+</div>

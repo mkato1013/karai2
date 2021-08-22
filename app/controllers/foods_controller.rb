@@ -33,7 +33,7 @@ class FoodsController < ApplicationController
     return redirect_to user_path if current_user.id != @food.user.id
     
     if @food.update(food_params)
-      redirect_to user_path
+      redirect_to user_path(@food.user_id)
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class FoodsController < ApplicationController
     return redirect_to user_path if current_user.id != @food.user.id
     
     @food.destroy
-    redirect_to user_path
+    redirect_to user_path(@food.user_id)
   end
 
   private

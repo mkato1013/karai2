@@ -1,0 +1,11 @@
+.footer {
+  background-color: rgb(2, 2, 2);
+  color: rgb(255, 244, 244);
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+p {
+  color: rgb(255, 232, 232);
+}

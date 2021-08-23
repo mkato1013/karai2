@@ -1,11 +1,15 @@
 .footer {
   background-color: rgb(2, 2, 2);
-  color: rgb(255, 244, 244);
+  color: white;
   width: 100vw;
-  position: absolute;
+  height: 5vh;
   bottom: 0;
+  padding: auto;
+  text-align: center;
 }
 
 p {
-  color: rgb(255, 232, 232);
+  color: white;
+  
+  padding: auto;
 }

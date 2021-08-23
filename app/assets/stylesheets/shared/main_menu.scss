@@ -1,0 +1,29 @@
+.menu-bar {
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  height: 20vh;
+  bottom: 0px;
+}
+
+.menu-details {
+  background-image: image-url("greenhot.png");
+  background-position: center;
+  background-size: 100%;
+  width: 50vw;
+  height: 15vh;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  padding: auto;
+}
+
+.fas,.fab {
+  font-size: 7vh;
+}
+
+.menu-content,.postfood-btn-text {
+  font-size: 2vh;
+  display: block;
+  margin: 4vh;
+}

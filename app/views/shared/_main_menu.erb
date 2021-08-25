@@ -10,14 +10,20 @@
     <div class="fas fa-bars"></div>
     <h2 class="menu-content">MENU</h2>
   </div>
+
+<%# JavaScriptでボタン表示 %>
   <div class="menu-details">
-    <div class="fas fa-search"></div>
-    <h2 class="menu-content">SEARCH</h2>
-    <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "food-search-input" %>
-      <%= form.submit "検索", class: "food-search-btn" %>
-    <% end %>
+    <div class="fas fa-search" id="back-btn"></div>
+      <h2 class="menu-content" id="back-btn">SEARCH</h2>
+      <ul>
+        <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search", id:"pull-down") do |form| %>
+          <li><%= form.text_field :keyword, placeholder: "TYPE A KEYWORD" %></li>
+          <li><%= form.submit "SEARCH" %></li>
+        <% end %>
+      </ul>
   </div>
+<%# /JavaScriptでボタン表示 %>
+
   <div class="menu-details">
     <%= link_to(new_food_path, class: 'main-menu-btn') do %>
       <div class="fab fa-hotjar"></div>

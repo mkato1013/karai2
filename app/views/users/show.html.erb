@@ -1,13 +1,28 @@
-<div class="mypage-contents">
-  <header class="mypege-header">
-  マイページ
-  </header>
+<%= render "shared/header2" %>
 
+<div class="mypage-contents">
   <div class="mypage-main">
-    <h2 class="mypage-title">MY KARAI</h2>
-      <div class="contents row">
-      <p><%= @nickname %>さんの投稿一覧</p>
-      <% @foods.each do |food| %>
+<%# マイページの紹介 %>
+    <div class="mypage-intro">
+      <h2 class="mypage-title">MY PAGE</h2>
+      <% if @image.present? %>
+        <%= image_tag @image, class: "mypage-image" %>
+      <% else %>
+        <%= image_tag "sample.png", class: "mypage-image" %>
+      <%end%>
+      <h2 class="mypage-follow">フォロー数</h2>
+      <h2 class="mypage-nickname">
+        <%= @user.nickname %>
+      </h2>
+      <h2 class="mypage-introduction">一言入れる機能
+        <%= @user.introduction %>
+      </h2>
+    </div>
+
+
+
+      <div class="contents-row">
+      <% @user.foods.each do |food| %>
         <li class="list">
           <div class="food-img-content">
             <%= image_tag food.image, class: "food-img" if food.image.attached? %>
@@ -28,14 +43,14 @@
               </ul>
             </div>
 
-            <div class="food-img-info">
-              <h2 class="shop-name">
+            <div class="food-img-info2">
+              <h2 class="shop-name2">
               <%= food.shop_name%>
               </h2>
-              <h2 class="food-name">
+              <h2 class="food-name2">
               <%= food.food_name%>
               </h2>
-              <h3 class="food-spicylevel">
+              <h3 class="spicy-level-category2">
               <%= food.spicy_level.name%>
               </h3>
             </div>
@@ -44,48 +59,8 @@
       <% end %>
       </div>
   </div>
-
-    
-
-
-<%# メインメニューバー %>
-
-<div class="menu-bar">
-
-  <div class="menu-details">
-    <h2 class="menu-content">ホーム</h2>
-    <%= link_to 'もどる', root_path, class:"back-btn" %>
-  </div>
-  <div class="menu-details">
-    <h2 class="menu-content">メニュー</h2>
-  </div>
-  <div class="menu-details">
-    <h2 class="menu-content">検索</h2>
-  </div>
-  <div class="menu-details">
-    <%= link_to(new_food_path, class: 'postfood-btn') do %>
-      <span class='postfood-btn-text'>！！（KARAI）！！</span>
-      <%= image_tag 'sample.png' , size: '150x150' ,class: "purchase-btn-icon" %>
-    <% end %>
-  </div>
-  <div class="menu-details">
-    <h2 class="menu-content">マイページ</h2>
-  </div>
-  <div class="menu-details">
-    <h2 class="menu-content">AMAI</h2>
-  </div>
-  <div class="menu-details">
-    <ul class='lists-right'>
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, user_path(current_user), class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-    <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-    <% end %>
-    </ul>
-  </div>
-
 </div>
-<%# /メインメニューバー %>
 
+<%= render "shared/main_menu" %>
+
+<%= render "shared/footer" %>

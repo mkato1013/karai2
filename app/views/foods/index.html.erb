@@ -16,12 +16,25 @@
               <h2 class="food-name">
               <%= food.food_name%>
               </h2>
-              <h3 class="food-spicylevel">
+              <h2 class="food-spicylevel">
               <%= food.spicy_level.name%>
-              </h3>
+              </h2>
+              <h2 class="food-likes-index">KALIKE
+              <%= food.likes.count %>
+              </h2>
+              <% if current_user.already_liked?(food) %>
+                <%= link_to 'いいねを取り消す',food_like_path(food), method: :delete %>
+              <% else %>
+                <%= link_to 'いいね', food_likes_path(food), method: :post %>
+              <% end %>
+
+              <%# 検討中 %>
+              <%# <h2>いいねしたユーザー</h2> %>
+              <%# <% @post.liked_users.each do |user| %>
+               <%# <li><%#= user.email %>
+              <%# <% end %>
+
             </div>
-
-
           <% end %>
           </div>
         </li>

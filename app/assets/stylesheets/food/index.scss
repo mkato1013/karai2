@@ -15,7 +15,18 @@
 
 .food-contents-title {
   width: 100vw;
-  height: 100vh;
+  height: 10vh;
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 10vh;
+  padding-top: 3vh;
+  text-align: center;
+}
+
+.food-lists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .food-img {

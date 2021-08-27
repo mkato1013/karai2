@@ -2,16 +2,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @nickname = user.nickname
-    # @foods = user.foods
-    # @image = user.image
-    # @introduction = user.introduction
   end
 
-  # private
+  def followings
+    user = User.find(params[:id])
+    @users = user.followings
+  end
 
-  # def user_params
-  #   params.require(:user).permit(:image, :nickname, :introduction)
-  # end
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+
+  def index
+    @users = User.where.not(id: current_user.id)
+  end
 
 end

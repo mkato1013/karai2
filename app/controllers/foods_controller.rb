@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.order("created_at DESC")
+    @like = Like.new
   end
 
   def new

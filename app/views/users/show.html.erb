@@ -8,16 +8,19 @@
         <%= image_tag @image, class: "mypage-image" %>
       <% else %>
         <%= image_tag "sample.png", class: "mypage-image" %>
-      <%end%>
+      <% end %>
 
-      <%# <h2 class="mypage-follow">フォロー</h2> %>
-      <%#   <%= link_to @user.followings.count, followings_user_path(@user) %>
-      <%# <h2 class="mypage-follow">フォロワー</h2> %>
-      <%#   <%= link_to @user.followers.count, followers_user_path(@user) %>
+      <div class="mypage-follow-info">
+        <h2 class="mypage-follow">フォロー</h2>
+          <%= link_to @user.followings.count, followings_user_path(@user) %>
+        <h2 class="mypage-follow">フォロワー</h2>
+          <%= link_to @user.followers.count, followers_user_path(@user) %>
+      </div>
       
       <% if @user == current_user %>
-        <p class="lead text-muted">自分のマイページですやん<%= current_user.email %></p>
+        <p class="lead text-muted">自分のマイページです<%= current_user.email %></p>
       <% else %>
+
         <% if @user.is_followed_by?(current_user) %>
           <%= link_to user_relationship_path(@user), method: :delete do %>
             <button class="btn btn-danger">フォロー解除</button>

@@ -1,0 +1,24 @@
+<div class="followings-contents">
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 mt-5">
+      <h1>FOLLOWING</h1>
+        <h2 class="followings-contents-title">Nickname</h2>
+          <% @users.each do |user| %>
+            <%= link_to user_path(user) do %>
+              <%= user.nickname %>
+            <% end %>
+              <% if user != current_user %>
+                <% if user.is_followed_by?(current_user) %>
+                  <%=link_to user_relationship_path(user), method: :delete do %>
+                    <button type="button" class="btn btn btn-danger">フォロー解除</button>
+                  <% end %>
+                <% else %>
+                  <%=link_to user_relationships_path(user), method: :post do %>
+                    <button type="button" class="btn btn btn-primary">フォロー</button>
+                  <% end %>
+                <% end %>
+              <% end %>
+          <% end %>
+    </div>
+  </div>
+</div>

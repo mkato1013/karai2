@@ -1,0 +1,50 @@
+.menu-bar {
+  width: 100vw;
+  display: flex;
+  // position: fixed;
+  position: sticky;
+  bottom: 0px;
+  margin-top: 120vh;
+}
+
+.menu-details {
+  background-image: image-url("greenhot.png");
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: lighten;
+  background-position: center;
+  background-size: 100%;
+  width: 50vw;
+  height: 15vh;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  border: solid black 1vh;
+  position: relative;
+}
+
+.fas,.fab {
+  font-size: 7vh;
+  cursor: pointer;
+  padding-top: 1vh;
+  color: black;
+}
+
+.menu-content,.postfood-btn-text {
+  font-size: 1vw;
+  display: block;
+  margin: 4vh;
+  cursor: pointer;
+  color: black;
+}
+
+.food-search {
+  display: none;
+  position: absolute;
+  top: -10vh;
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}

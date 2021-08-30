@@ -1,0 +1,57 @@
+<div class="menu-bar">
+
+  <div class="menu-details">
+    <%= link_to(root_path, class: 'main-menu-btn') do %>
+      <div class="fas fa-home"></div>
+      <h2 class="menu-content">HOME</h2>
+    <% end %>
+  </div>
+  <div class="menu-details">
+    <div class="fas fa-bars"></div>
+    <h2 class="menu-content">MENU</h2>
+  </div>
+
+<%# JavaScriptでボタン表示 %>
+  <div class="menu-details">
+    <div class="fas fa-search" id="back-btn"></div>
+      <h2 class="menu-content" id="back-btn">SEARCH</h2>
+      <ul>
+        <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search", id:"pull-down") do |form| %>
+          <li><%= form.text_field :keyword, placeholder: "TYPE A KEYWORD" %></li>
+          <li><%= form.submit "SEARCH" %></li>
+        <% end %>
+      </ul>
+  </div>
+<%# /JavaScriptでボタン表示 %>
+
+  <div class="menu-details">
+    <%= link_to(new_food_path, class: 'main-menu-btn') do %>
+      <div class="fab fa-hotjar"></div>
+      <span class='postfood-btn-text'>KARAI</span>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+  <div class="menu-details">
+    <%= link_to(user_path(current_user), class: "user-nickname") do %>
+      <div class="fas fa-portrait"></div>
+      <h2 class="menu-content">MY PAGE</h2>
+    <% end %>
+  </div>
+  <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+  <% end %>
+  <div class="menu-details">
+    <div class="fas fa-ice-cream"></div>
+    <h2 class="menu-content">AMAI</h2>
+  </div>
+  <div class="menu-details">
+    <% if user_signed_in? %>
+      <%= link_to(destroy_user_session_path, method: :delete, class: "logout") do %>
+        <div class="fas fa-door-open"></div>
+        <h2 class="menu-content">LOG OUT</h2>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

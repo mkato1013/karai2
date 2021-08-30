@@ -1,0 +1,36 @@
+.main {
+  width: 100vw;
+  height: 300vh;
+  background-image: image-url("hotmain.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.food-contents {
+  height: 300vh;   //投稿分に合わせて調整
+  width: 100vw;
+}
+
+.food-contents-title {
+  width: 100vw;
+  height: 10vh;
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 10vh;
+  padding-top: 3vh;
+  text-align: center;
+}
+
+.food-lists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-img {
+  width: 20vh;
+  height: 20vh;
+  margin: 20px;
+}

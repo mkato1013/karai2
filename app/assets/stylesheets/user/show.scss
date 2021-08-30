@@ -1,0 +1,50 @@
+.mypage-contents {
+  padding: 5vh 20vh 20vh 20vh;
+  background-image: image-url("hotmain.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.mypage-title {
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 7vh;
+  padding: 1vh 1vh;
+}
+
+.mypage-image {
+  height: 20vh;
+  width: 20vh;
+}
+
+.contents-row {
+  display: flex;
+}
+
+.list {
+  list-style: none;
+}
+
+.food-img-content {
+  padding: 5vh;
+}
+
+.food-img-info2 {
+  width: 10vw;
+}
+
+.shop-name2,.food-name2,.spicy-level-category2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 1vw;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+  color: #232323;
+  background: #ffe8e8;
+  border-left: solid 10px #ff6e6e;
+
+}

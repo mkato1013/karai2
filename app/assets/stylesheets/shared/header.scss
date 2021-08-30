@@ -1,0 +1,23 @@
+.top-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-page-header {
+  width: 100vw;
+  height: 50vh;
+  font-weight: 1000;
+  justify-content: end;
+  text-align: center;
+  background-image: image-url("hot.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 50vh;
+}
+
+.top-page-headerback {
+  color: aliceblue;
+  font-family: Impact;
+  font-size: 30vh;
+}

@@ -1,9 +1,10 @@
 .menu-bar {
   width: 100vw;
   display: flex;
-  position: fixed;
-  height: 20vh;
+  // position: fixed;
+  position: sticky;
   bottom: 0px;
+  margin-top: 120vh;
 }
 
 .menu-details {

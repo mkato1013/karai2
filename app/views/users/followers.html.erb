@@ -1,8 +1,8 @@
-<div class="followings-contents">
+<div class="followers-contents">
   <div class="row d-flex justify-content-center">
     <div class="col-10 mt-5">
-      <h1>FOLLOWING</h1>
-        <h2 class="followings-contents-title">Nickname</h2>
+      <h1>FOLLOWERS</h1>
+        <h2 class="followers-contents-title">Nickname</h2>
           <% @users.each do |user| %>
             <%= link_to user_path(user) do %>
               <%= user.nickname %>

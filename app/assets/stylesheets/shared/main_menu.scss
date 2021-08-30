@@ -4,7 +4,6 @@
   // position: fixed;
   position: sticky;
   bottom: 0px;
-  margin-top: 120vh;
 }
 
 .menu-details {
@@ -18,8 +17,9 @@
   display: block;
   text-align: center;
   vertical-align: middle;
-  border: solid black 1vh;
+  border: solid green 0.5vh;
   position: relative;
+  border-radius: 100px;
 }
 
 .fas,.fab {

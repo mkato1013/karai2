@@ -55,3 +55,18 @@
   </div>
 
 </div>
+
+
+
+<script>
+  $(function() {
+    $('.menu-bar').hide();
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 120){
+        $('.menu-bar').fadeIn()
+      }else{
+        $('.menu-bar').fadeOut();
+      }
+    });
+  });
+</script>

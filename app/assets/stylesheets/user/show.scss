@@ -1,5 +1,4 @@
 .mypage-contents {
-  padding: 5vh 20vh 20vh 20vh;
   background-image: image-url("hotmain.png");
   background-size: cover;
   background-repeat: repeat;
@@ -7,16 +6,25 @@
   background-blend-mode: lighten;
 }
 
-.mypage-title {
+.mypage-intro {
+  padding: 1vh 20vh;
+}
+
+.mypage-title,.contents-title {
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
   font-size: 7vh;
-  padding: 1vh 1vh;
+  padding: 0vh auto 1vh;
+  text-align: center;
 }
 
 .mypage-image {
-  height: 20vh;
-  width: 20vh;
+  height: 40vh;
+  width: 40vh;
+}
+
+.mypage-follow {
+  display: contents;
 }
 
 .contents-row {

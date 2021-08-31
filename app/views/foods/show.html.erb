@@ -1,32 +1,54 @@
-<%= render "shared/header" %>
+<%= render "shared/header2" %>
 
 <div class="main">
   <div class="food-contents">
-  <h2 class="food-contents-title">最新のKARAI</h2>
-    <ul class="food-lists">
-      <%# <% @food.each do |food| %>
+    <h2 class="food-contents-title">IT'S KARAI!</h2>
+      <ul class="food-lists">
         <li class="list">
           <div class="food-img-content">
-          <%= link_to food_path(@food) do %>
             <%= image_tag @food.image, class: "food-img" if @food.image.attached? %>
+              <h2 class="food-likes-index">KALIKE
+                <%= @food.likes.count %>
+              </h2>
+              <% if user_signed_in? %>
+                <% if current_user.already_liked?(@food) %>
+                  <%= link_to "いいねを取り消す", food_likes_path(@food,@like), method: :delete %>
+                <% else %>
+                  <%= link_to "いいね", food_likes_path(@food), method: :post %>
+                <% end %>
+              <% end %>
+            
             <div class="food-img-info">
-              <h2 class="shop-name">
-              <%= @food.shop_name%>
+
+              <h2 class="food-mealtype">
+                <%= @food.meal_type.name %>
               </h2>
-              <h2 class="food-name">
-              <%= @food.food_name%>
+              <h2 class="foodshop-name">
+                <%= @food.shop_name %>
               </h2>
-              <h3 class="food-spicylevel">
-              <%= @food.spicy_level.name%>
-              </h3>
+              <h2 class="foodname">
+                <%= @food.food_name %>
+              </h2>
+              <h2 class="food-spicylevel">
+                <%= @food.spicy_level.name %>
+              </h2>
+              <h2 class="foodshop-station">
+                <%= @food.station %>
+              </h2>
+              <h2 class="foodshop-mood">
+              <%= @food.shop_mood.name %>
+              </h2>
+              <h2 class="shop-waitingtime">
+              <%= @food.waiting_time.name %>
+              </h2>
+              <h2 class="foodshop-comment">
+              <%= @food.food_comment %>
+              </h2>
+              
             </div>
-
-
-          <% end %>
           </div>
         </li>
-      <%# <% end %>
-    </ul>
+      </ul>
   </div>
 </div>
 

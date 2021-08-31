@@ -3,6 +3,7 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.order("created_at DESC")
     @like = Like.new
+    @weekly_ranks = Food.find(Like.group(:food_id).order('count(food_id) desc').limit(5).pluck(:food_id))
   end
 
   def new

@@ -13,7 +13,7 @@
   width: 100vw;
 }
 
-.food-contents-title {
+.weekly-ranks-title,.food-contents-title {
   width: 100vw;
   height: 10vh;
   color: rgb(0, 0, 0);
@@ -28,6 +28,13 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.food-img-content {
+  padding: 5vh;
+  border: solid 0.1px red;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .food-img {

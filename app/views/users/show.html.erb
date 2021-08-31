@@ -2,7 +2,11 @@
 
 <div class="mypage-contents">
   <div class="mypage-main">
+
+<%# プロフィール %>
     <div class="mypage-intro">
+
+<%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
         <h2 class="mypage-title">MY PAGE</h2>
         <% if @image.present? %>
@@ -14,9 +18,12 @@
         <h2 class="mypage-nickname">
           <%= @user.nickname %>
         </h2>
+      </div>
+<%# /左プロフィール欄 %>
 
-    
+<%# 右プロフィール欄 %>
       <div class="mypage-intro-right">
+        <div class="mypage-intro-follow">
         <h2 class="mypage-follow">フォロー</h2>
           <%= link_to @user.followings.count, followings_user_path(@user) %>
         <h2 class="mypage-follow">フォロワー</h2>
@@ -24,7 +31,6 @@
             <% if @user == current_user %>
               <p class="lead text-muted"><%= current_user.email %>にてログイン中</p>
             <% else %>
-
               <% if @user.is_followed_by?(current_user) %>
                 <%= link_to user_relationship_path(@user), method: :delete do %>
                 <button class="btn btn-danger">フォロー解除</button>
@@ -35,17 +41,19 @@
                 <% end %>
               <% end %>
             <% end %>
-
+        </div>
+        <div class="mypage-introduction-edit">
+          <% if user_signed_in? && @user == current_user %>
+            <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+          <% end %>
+        </div>
+        <h2 class="mypage-introduction">一言入れる機能
+          <%= @user.introduction %>
+        </h2>
       </div>
-      
-      
-
-      
-      <h2 class="mypage-introduction">一言入れる機能
-        <%= @user.introduction %>
-        ここにプロフィール欄を付けたい！デバイスのeditを使う？？
-      </h2>
+<%# /右プロフィール欄 %>
     </div>
+<%# /プロフィール欄 %>
 
       <h2 class="contents-title">MY KARAI</h2>
       <div class="contents-row">
@@ -84,7 +92,6 @@
           </div>
         </li>
       <% end %>
-      </div>
   </div>
 </div>
 

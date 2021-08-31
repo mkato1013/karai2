@@ -1,0 +1,23 @@
+<%= render "shared/header2" %>
+
+<h2 class="edit-mypage-title">EDIT MY PAGE</h2>
+
+<%# プロフィール %>
+    <div class="mypage-intro">
+
+<%# 左プロフィール欄 %>
+      <div class="mypage-intro-left">
+        <h2 class="mypage-title">MY PAGE</h2>
+        <% if @image.present? %>
+          <%= image_tag @image, class: "mypage-image" %>
+        <% else %>
+          <%= image_tag "sample.png", class: "mypage-image" %>
+        <% end %>
+
+        <h2 class="mypage-nickname">
+          <%= @user.nickname %>
+        </h2>
+      </div>
+<%# /左プロフィール欄 %>
+    </div>
+<%# /プロフィール欄 %>

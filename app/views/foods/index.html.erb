@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <div class="weekly-ranks">
-    <h2 class="weekly-ranks-title">Weekly !</h2>
-    <% @weekly_ranks.each do |food| %>
+  <div class="ranks">
+    <h2 class="ranks-title">Ranking !</h2>
+    <% @ranks.each do |food| %>
       <div class="food-img-content">
         <h2 class="food-post-user">
           <%= link_to user_path(food.user_id) do %>

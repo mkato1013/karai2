@@ -9,13 +9,14 @@
 <%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
         <h2 class="mypage-title">MY PAGE</h2>
-        <% if @image.present? %>
-          <%= image_tag @image, class: "mypage-image" %>
+        <% if @user.icon.present? %>
+          <%= image_tag @user.icon, class: "mypage-image" %>
         <% else %>
           <%= image_tag "sample.png", class: "mypage-image" %>
         <% end %>
 
         <h2 class="mypage-nickname">
+          
           <%= @user.nickname %>
         </h2>
       </div>
@@ -47,7 +48,7 @@
             <%= link_to "プロフィール編集", edit_user_path(current_user) %>
           <% end %>
         </div>
-        <h2 class="mypage-introduction">一言入れる機能
+        <h2 class="mypage-introduction">
           <%= @user.introduction %>
         </h2>
       </div>

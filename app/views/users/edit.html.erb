@@ -2,22 +2,44 @@
 
 <h2 class="edit-mypage-title">EDIT MY PAGE</h2>
 
+<%= form_with model: current_user, local: true do |f| %>
+
 <%# プロフィール %>
     <div class="mypage-intro">
 
 <%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
         <h2 class="mypage-title">MY PAGE</h2>
-        <% if @image.present? %>
-          <%= image_tag @image, class: "mypage-image" %>
+        <%= f.file_field :icon, id:"icon-image" %>
+        <% if @user.icon.present? %>
+          <%= image_tag @user.icon, class: "mypage-image" %>
         <% else %>
           <%= image_tag "sample.png", class: "mypage-image" %>
         <% end %>
 
         <h2 class="mypage-nickname">
-          <%= @user.nickname %>
+          <%= f.label :nickname, "ニックネーム" %>
+          <%= f.text_field :nickname, class:"mypage-nickname-text", id:"mypage-nickname-text", placeholder:"（40文字以内)", maxlength:"40" %>
+        </h2>
+
+        <h2 class="mypage-email">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.text_field :email, class:"mypage-email-text", id:"mypage-email-text" %>
+        </h2>
+
+        <h2 class="mypage-introduction">
+          <%= f.label :introduction, "紹介文" %>
+          <%= f.text_area :introduction, class:"mypage-introduction-text", id:"mypage-introduction-text", placeholder:"（500文字以内)", maxlength:"500" %>
         </h2>
       </div>
 <%# /左プロフィール欄 %>
     </div>
 <%# /プロフィール欄 %>
+
+    <%# 下部ボタン %>
+    <div class="mypage-edit-btn-contents">
+      <%= f.submit "！変更！" ,class:"mypage-edit-btn" %>
+    </div>
+    <%# /下部ボタン %>
+    
+<% end %>

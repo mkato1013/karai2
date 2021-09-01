@@ -1,14 +1,25 @@
+.ranks-img {
+  margin: 0vh 20vh;
+}
+
 .ranks-img-content {
   padding: 5vh;
   border: solid 0.1px red;
   border-radius: 10px;
   margin: 10px 200px;
-  background-color: rgba(255, 255, 255, 0.658);
+  background-color: rgba(255, 255, 255, 0.692);
 }
 
-.slick-prev::before,
+.slick-prev::before {
+  color: black !important;
+  z-index: 100;
+  margin: 0px;
+  left: 120px;
+}
+
 .slick-next::before {
   color: black !important;
   z-index: 100;
   margin: 0px;
+  right: 120px;
 }

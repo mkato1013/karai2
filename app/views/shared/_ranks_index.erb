@@ -1,12 +1,18 @@
 <h2 class="ranks-title">Ranking !</h2>
   <div class="ranks">
+  <div class="ranks-img">
     <% @ranks.each do |food| %>
       
       <div class="ranks-img-content">
         <h2 class="food-post-user">
-          <%= link_to user_path(food.user_id) do %>
-            <%= food.user.nickname %>
+          <% if food.user.icon.present? %>
+            <%= image_tag food.user.icon, class: "icon-img" %>
+          <% else %>
+            <i class="fas fa-user-circle"></i>
           <% end %>
+            <%= link_to user_path(food.user_id) do %>
+              <%= food.user.nickname %>
+            <% end %>
         </h2>
             <%= link_to food_path(food) do %>
               <%= image_tag food.image, class: "food-img" if food.image.attached? %>
@@ -33,13 +39,15 @@
                   <%= link_to "いいね", food_likes_path(food), method: :post %>
                 <% end %>
               <% end %>
+      
       </div>
     <% end %>
+    </div>
   </div>
 
 <script type="text/javascript">
   $(function() {
-    $('.ranks').slick({
+    $('.ranks-img').slick({
       dots: true
     });
   });

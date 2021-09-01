@@ -95,3 +95,16 @@
 
 - belongs_to :follower
 - belongs_to :followed
+
+## comments テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| text         | text       | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| food         | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :food

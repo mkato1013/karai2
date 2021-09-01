@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.order("created_at DESC")
+    @foods = Food.order("created_at DESC").where(user_id: [current_user.id,*current_user.following_ids])
     @like = Like.new
     @ranks = Food.find(Like.group(:food_id).order('count(food_id) desc').limit(5).pluck(:food_id))
   end
@@ -44,6 +44,8 @@ class FoodsController < ApplicationController
   def show
     @food = Food.find(params[:id])
     @like = Like.new
+    @comment = Comment.new
+    @comments = @food.comments
   end
 
   def destroy

@@ -12,6 +12,11 @@
             <div class="food-img-content">
               <h2 class="food-post-user">
                 <%= link_to user_path(food.user_id) do %>
+                  <% if food.user.icon.present? %>
+                    <%= image_tag food.user.icon, class: "icon-img" %>
+                  <% else %>
+                    <i class="fas fa-user-circle"></i>
+                  <% end %>
                   <%= food.user.nickname %>
                 <% end %>
               </h2>
@@ -35,9 +40,9 @@
                 </h2>
                 <% if user_signed_in? %>
                   <% if current_user.already_liked?(food) %>
-                    <%= link_to "いいねを取り消す", food_likes_path(food,@like), method: :delete %>
+                    <%= link_to "いいねを取り消す", food_likes_path(food,@like), method: :delete, remote: true %>
                   <% else %>
-                    <%= link_to "いいね", food_likes_path(food), method: :post %>
+                    <%= link_to "いいね", food_likes_path(food), method: :post, remote: true %>
                   <% end %>
                 <% end %>
             </div>
@@ -51,3 +56,9 @@
 <%= render "shared/main_menu" %>
 
 <%= render "shared/footer" %>
+
+<script>
+$(function(){
+  $(".food-contents").jscroll();
+});
+</script>

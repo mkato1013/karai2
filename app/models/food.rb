@@ -3,6 +3,7 @@ class Food < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
   has_one_attached :image
+  has_many :comments
 
   def self.search(search)
     if search != ""

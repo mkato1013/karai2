@@ -1,6 +1,8 @@
 <%= render "shared/header2" %>
 
 <div class="mypage-contents">
+  <h2 class="mypage-title">MY PAGE</h2>
+
   <div class="mypage-main">
 
 <%# プロフィール %>
@@ -8,15 +10,12 @@
 
 <%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
-        <h2 class="mypage-title">MY PAGE</h2>
         <% if @user.icon.present? %>
           <%= image_tag @user.icon, class: "mypage-image" %>
         <% else %>
-          <%= image_tag "sample.png", class: "mypage-image" %>
+          <i class="fas fa-user"></i>
         <% end %>
-
         <h2 class="mypage-nickname">
-          
           <%= @user.nickname %>
         </h2>
       </div>
@@ -24,40 +23,45 @@
 
 <%# 右プロフィール欄 %>
       <div class="mypage-intro-right">
-        <div class="mypage-intro-follow">
-        <h2 class="mypage-follow">フォロー</h2>
-          <%= link_to @user.followings.count, followings_user_path(@user) %>
-        <h2 class="mypage-follow">フォロワー</h2>
-          <%= link_to @user.followers.count, followers_user_path(@user) %>
-            <% if @user == current_user %>
-              <p class="lead text-muted"><%= current_user.email %>にてログイン中</p>
-            <% else %>
-              <% if @user.is_followed_by?(current_user) %>
-                <%= link_to user_relationship_path(@user), method: :delete do %>
-                <button class="btn btn-danger">フォロー解除</button>
-                <% end %>
+        <div class="mypage-intro-topright">
+          <h2 class="mypage-following">フォロー
+            <%= link_to @user.followings.count, followings_user_path(@user) %>
+          </h2>
+          <h2 class="mypage-follower">フォロワー
+            <%= link_to @user.followers.count, followers_user_path(@user) %>
+              <% if @user == current_user %>
+
               <% else %>
-                <%= link_to user_relationships_path(@user), method: :post do %>
-                <button class="btn btn-primary">フォロー</button>
+                <% if @user.is_followed_by?(current_user) %>
+                  <%= link_to user_relationship_path(@user), method: :delete do %>
+                  <button class="btn btn-danger">フォロー解除</button>
+                  <% end %>
+                <% else %>
+                  <%= link_to user_relationships_path(@user), method: :post do %>
+                  <button class="btn btn-primary">フォロー</button>
+                  <% end %>
                 <% end %>
               <% end %>
+          </h2>
+          <h2 class="mypage-introduction-edit">
+            <% if user_signed_in? && @user == current_user %>
+              <%= link_to "プロフィール編集", edit_user_path(current_user) %>
             <% end %>
+          </h2>
         </div>
-        <div class="mypage-introduction-edit">
-          <% if user_signed_in? && @user == current_user %>
-            <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-          <% end %>
+        
+        <div class="mypage-intro-bottomright">
+          <h2 class="mypage-introduction">
+            <%= @user.introduction %>
+          </h2>
         </div>
-        <h2 class="mypage-introduction">
-          <%= @user.introduction %>
-        </h2>
       </div>
 <%# /右プロフィール欄 %>
     </div>
 <%# /プロフィール欄 %>
 
-      <h2 class="contents-title">MY KARAI</h2>
-      <div class="contents-row">
+  <h2 class="contents-title">MY KARAI</h2>
+    <div class="contents-row">
       <% @user.foods.each do |food| %>
         <li class="list">
           <div class="food-img-content">
@@ -93,7 +97,7 @@
           </div>
         </li>
       <% end %>
-  </div>
+    </div>
 </div>
 
 <%= render "shared/main_menu" %>

@@ -6,10 +6,6 @@
   background-blend-mode: lighten;
 }
 
-.mypage-intro {
-  padding: 1vh 20vh;
-}
-
 .mypage-title,.contents-title {
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
@@ -18,17 +14,34 @@
   text-align: center;
 }
 
+.mypage-intro {
+  padding: 1vh 40vh;
+  display: flex;
+  justify-content: space-around;
+}
+
 .mypage-image {
   height: 40vh;
   width: 40vh;
 }
 
-.mypage-follow {
-  display: contents;
+.fa-user {
+  font-size: 40vh;
+}
+
+.mypage-intro-right {
+  padding: 5vh;
+}
+
+.mypage-intro-topright {
+  display: flex;
 }
 
 .contents-row {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .list {
@@ -54,5 +67,4 @@
   color: #232323;
   background: #ffe8e8;
   border-left: solid 10px #ff6e6e;
-
 }

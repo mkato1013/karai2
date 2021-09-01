@@ -1,6 +1,5 @@
 .main {
   width: 100vw;
-  height: 300vh;
   background-image: image-url("hotmain.png");
   background-size: cover;
   background-repeat: repeat;
@@ -9,7 +8,6 @@
 }
 
 .food-contents {
-  height: 300vh;   //投稿分に合わせて調整
   width: 100vw;
 }
 
@@ -35,6 +33,17 @@
   border: solid 0.1px red;
   border-radius: 10px;
   margin: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.icon-img {
+  width: 7vh;
+  height: 7vh;
+}
+
+.fa-user-circle {
+  font-size: 7vh;
 }
 
 .food-img {

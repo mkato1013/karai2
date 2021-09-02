@@ -14,10 +14,6 @@ class UsersController < ApplicationController
     @users = user.followers
   end
 
-  # def index
-  #   @users = User.where.not(id: current_user.id)
-  # end
-
   def edit
     @user = User.find(params[:id])
     return redirect_to user_path if current_user.id != @user.id

@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(comment_params)
-    redirect_to request.referrer || root_path
+    @food = Food.find(params[:food_id])
+    @comment = Comment.create(comment_params)
+    @comments = @food.comments
   end
 
   private

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resource :likes, only: [:create, :destroy]
     # resources :likes, only: [:index]これでランキング出るらしい
-    resources :comments, only: :create
+    resources :comments
   end
   resources :users do
     resource :relationships, only: [:create, :destroy]

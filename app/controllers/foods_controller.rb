@@ -1,7 +1,9 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.order("created_at DESC").where(user_id: [current_user.id,*current_user.following_ids])
+    to = Time.current.at_beginning_of_day
+    from = (to - 1.week)
+    @foods = Food.order("created_at DESC").where(user_id: [current_user.id,*current_user.following_ids]).where(created_at: from...to)
     @like = Like.new
     @ranks = Food.find(Like.group(:food_id).order('count(food_id) desc').limit(5).pluck(:food_id))
   end

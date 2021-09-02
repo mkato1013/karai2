@@ -17,7 +17,7 @@
         <div class="click-upload">
           <%= f.file_field :image, id:"food-image" %>
         </div>
-        <%= image_tag @food.image.variant(resize: '200x200'), class: 'food-image' if @food.image.attached? %>
+        <%= image_tag @food.image, class: 'food-image' if @food.image.attached? %>
       </div>
     </div>
     <%# /食べ物画像 %>

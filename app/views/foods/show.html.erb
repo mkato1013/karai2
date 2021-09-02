@@ -7,16 +7,10 @@
         <li class="list">
           <div class="food-img-content">
             <%= image_tag @food.image, class: "food-img" if @food.image.attached? %>
-              <h2 class="food-likes-index">KALIKE
-                <%= @food.likes.count %>
-              </h2>
-              <% if user_signed_in? %>
-                <% if current_user.already_liked?(@food) %>
-                  <%= link_to "いいねを取り消す", food_likes_path(@food,@like), method: :delete %>
-                <% else %>
-                  <%= link_to "いいね", food_likes_path(@food), method: :post %>
-                <% end %>
-              <% end %>
+
+              <div class="food-likes-<%= @food.id %>">
+                <%= render partial:"likes/like", locals: {food: @food} %>
+              </div>
             
             <div class="food-img-info">
 

@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
 
+  before_action :search_product, only: [:index, :search]
+
   def index
     to = Time.current.at_beginning_of_day
     from = (to - 1.week)
@@ -25,6 +27,7 @@ class FoodsController < ApplicationController
 
   def search
     @foods = Food.search(params[:keyword])
+    @results = @p.result.includes(:spicy_level)
   end
 
   def edit
@@ -62,6 +65,10 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: current_user.id)
+  end
+
+  def search_product
+    @p = Food.ransack(params[:q])
   end
 
 end

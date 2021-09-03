@@ -2,12 +2,23 @@
 
 <div class="main">
   <div class="food-contents">
-  <h2 class="food-contents-title">検索結果</h2>
+  <h2 class="food-contents-title">Result !</h2>
+    <% if @foods.present? %>
     <ul class="food-lists">
       <% @foods.each do |food| %>
         <li class="list">
           <div class="food-img-content">
-          <%= link_to root_path do %>
+          <h2 class="food-post-user">
+            <%= link_to user_path(food.user_id) do %>
+              <% if food.user.icon.present? %>
+                <%= image_tag food.user.icon, class: "icon-img" %>
+              <% else %>
+                <i class="fas fa-user-circle"></i>
+              <% end %>
+              <%= food.user.nickname %>
+            <% end %>
+          </h2>
+          <%= link_to food_path(food) do %>
             <%= image_tag food.image, class: "food-img" if food.image.attached? %>
             <div class="food-img-info">
               <h2 class="shop-name">
@@ -16,23 +27,22 @@
               <h2 class="food-name">
               <%= food.food_name%>
               </h2>
-              <h3 class="food-spicylevel">
+              <h2 class="food-spicylevel">
               <%= food.spicy_level.name%>
-              </h3>
+              </h2>
             </div>
           <% end %>
           </div>
         </li>
       <% end %>
     </ul>
+    <% else %>
+      <div class="nokarai">
+        <h2 class="nokarai-title">SORRY. NO KARAI...</h2>
+      </div>
+    <% end %>
   </div>
 </div>
 
 
 <%= render "shared/main_menu" %>
-
-<%# 下部ボタン %>
-    <div class="postfood-btn-contents">
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
-<%# /下部ボタン %>

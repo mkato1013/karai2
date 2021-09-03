@@ -69,13 +69,12 @@
 <div class="modalsearch">
   <h2 class="modalsearch-title">Let's Search !</h2>
     <div class="modalsearch-contents">
-      <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search", id:"pull-down") do |f| %>
-        <%= f.text_field :keyword, placeholder: "TYPE A KEYWORD" %>
-        <%= f.submit "SEARCH" %>
-      <% end %>
-      <%= search_form_for @p, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
+      <%= search_form_for @q, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
+        <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '名前など' %>
+        <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "TYPE A KEYWORD" %>
         <%= f.label :spicy_level_id_eq, '辛さ' %>
         <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, include_blank: '--' %>
+        <%= f.submit "SEARCH" %>
       <% end %>
     </div>
   <h2 class="modalsearch-close">CLOSE</h2>

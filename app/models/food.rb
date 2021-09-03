@@ -9,7 +9,7 @@ class Food < ApplicationRecord
     if search != ""
       Food.where(["shop_name LIKE(?) OR shop_name_kana LIKE(?) OR food_name LIKE(?) OR station LIKE(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
-      redirect_to root_path
+      Food.all
     end
   end
 

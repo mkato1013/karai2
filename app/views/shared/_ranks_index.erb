@@ -2,36 +2,42 @@
 <div class="ranks">
   <div class="ranks-img">
     <% @ranks.each do |food| %>
-      
       <div class="ranks-img-content">
-        <h2 class="food-post-user">
+        <div class="ranks-food-post">
           <% if food.user.icon.present? %>
             <%= image_tag food.user.icon, class: "icon-img" %>
           <% else %>
             <i class="fas fa-user-circle"></i>
           <% end %>
-            <%= link_to user_path(food.user_id) do %>
+            <%= link_to user_path(food.user_id), class: "ranks-food-post-user" do %>
               <%= food.user.nickname %>
             <% end %>
-        </h2>
-            <%= link_to food_path(food) do %>
-              <%= image_tag food.image, class: "food-img" if food.image.attached? %>
-              <div class="food-img-info">
-                <h2 class="shop-name">
-                  <%= food.shop_name%>
-                </h2>
-                <h2 class="food-name">
-                  <%= food.food_name%>
-                </h2>
-                <h2 class="food-spicylevel">
-                  <%= food.spicy_level.name%>
-                </h2>
-              </div>
+        </div>
+        <div class="ranks-contents">
+          <div class="ranks-contents-left">
+            <%= link_to food_path(food), class: "ranks-food-img-info" do %>
+              <%= image_tag food.image, class: "ranks-food-img" if food.image.attached? %>
             <% end %>
+          </div>
+          <div class="ranks-contents-right">
+            <h1>店名</h1>
+            <h2 class="ranks-shop-name">
+              <%= food.shop_name %>
+            </h2>
+            <h1>メニュー名</h1>
+            <h2 class="ranks-food-name">
+              <%= food.food_name %>
+            </h2>
+            <h1>辛さ採点</h1>
+            <h2 class="ranks-food-spicylevel">
+              <%= food.spicy_level.name %>
+            </h2>
+            <div class="food-likes-<%= food.id %>">
+              <%= render partial:"likes/like", locals: {food: food} %>
+            </div>
+          </div>
+        </div>
               
-              <div class="food-likes-<%= food.id %>">
-                <%= render partial:"likes/like", locals: {food: food} %>
-              </div>
       </div>
     <% end %>
   </div>

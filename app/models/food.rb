@@ -7,7 +7,7 @@ class Food < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Food.where(["shop_name LIKE(?) OR shop_name_kana LIKE(?) OR food_name LIKE(?) OR station LIKE(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      Food.where(["shop_name LIKE(?) OR shop_name_kana LIKE(?) OR food_name LIKE(?) OR station LIKE(?)", "%#{search}%  %#{search}%  %#{search}% %#{search}%"])
     else
       Food.all
     end

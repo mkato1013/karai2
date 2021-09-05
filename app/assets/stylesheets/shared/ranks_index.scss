@@ -1,8 +1,5 @@
 // フォントのみ記述
-.ranks-food-post-user,
-.ranks-shop-name,
-.ranks-food-name,
-.ranks-food-spicylevel {
+.ranks-food-post-user {
   font-family: "M PLUS Rounded 1c";
 }
 // /フォントのみ記述
@@ -48,12 +45,13 @@
   margin: 1vw;
   object-fit: cover;
   background: #ffc29050;
-  border: 2px solid #2c161c46;
+  border: 2px solid #ffffff;
   border-radius: 5vh;
 }
 
 .ranks-shop-name,
-.ranks-food-name {
+.ranks-food-name,
+.ranks-food-spicylevel {
   font-size: 4vh;
   color: #000000;
   background: #ffc29050;

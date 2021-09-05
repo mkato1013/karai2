@@ -10,30 +10,40 @@
         <% @foods.each do |food| %>
          <li class="list">
             <div class="food-img-content">
-              <h2 class="food-post-user">
-                <%= link_to user_path(food.user_id) do %>
-                  <% if food.user.icon.present? %>
-                    <%= image_tag food.user.icon, class: "icon-img" %>
-                  <% else %>
-                    <i class="fas fa-user-circle"></i>
+              <div class="food-post-user">
+                <div>
+                  <%= link_to user_path(food.user_id) do %>
+                    <% if food.user.icon.present? %>
+                      <%= image_tag food.user.icon, class: "icon-img" %>
+                    <% else %>
+                      <i class="fas fa-user-circle"></i>
+                    <% end %>
                   <% end %>
-                  <%= food.user.nickname %>
-                <% end %>
-              </h2>
+                </div>
+                <div>
+                  <%= link_to user_path(food.user_id),class: "index-food-post-user" do %>
+                    <%= food.user.nickname %>
+                  <% end %>
+                </div>
+              </div>
               <%= link_to food_path(food) do %>
                 <%= image_tag food.image, class: "food-img" if food.image.attached? %>
+              <% end %>
                 <div class="food-img-info">
-                  <h2 class="shop-name">
+                <h1>店名</h1>
+                  <h2 class="index-shop-name">
                     <%= food.shop_name%>
                   </h2>
-                  <h2 class="food-name">
+                <h1>メニュー名</h1>
+                  <h2 class="index-food-name">
                     <%= food.food_name%>
                   </h2>
-                  <h2 class="food-spicylevel">
+                <h1>辛さ採点</h1>
+                  <h2 class="index-food-spicylevel">
                     <%= food.spicy_level.name%>
                   </h2>
                 </div>
-              <% end %>
+              
               
               <div class="food-likes-<%= food.id %>">
                 <%= render partial:"likes/like", locals: {food: food} %>

@@ -1,3 +1,20 @@
+// フォントのみ記述
+.food-post-user,
+.shop-name,
+.food-name,
+.food-spicylevel {
+  font-family: "M PLUS Rounded 1c";
+}
+// /フォントのみ記述
+
+// linkの下線削除
+.food-post-user,
+.food-img-info {
+  text-decoration: none;
+}
+// /linkの下線削除
+
+
 .main {
   width: 100vw;
   background-image: image-url("hotmain.png");
@@ -30,8 +47,8 @@
 
 .food-img-content {
   padding: 5vh;
-  border: solid 0.1px red;
-  border-radius: 10px;
+  border: 5px solid #ff0000;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;

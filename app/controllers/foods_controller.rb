@@ -33,7 +33,7 @@ class FoodsController < ApplicationController
     # @user = User.find(params[:id])
     # 上つけたし
     @q = Food.ransack(params[:q]) || User.ransack(params[:q])
-    @foods = @q.result
+    @foods = @q.result.order("created_at DESC").limit(25)
   end
 
   def edit
@@ -67,7 +67,7 @@ class FoodsController < ApplicationController
 
   private
 
-  def food_params
-    params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: user_id)
-  end
+  # def food_params
+  #   params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: user_id)
+  # end
 end

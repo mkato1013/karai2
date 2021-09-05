@@ -48,7 +48,7 @@
 
   <h2 class="contents-title">MY KARAI</h2>
     <div class="contents-row">
-      <% @user.foods.each do |food| %>
+      <% @foods.each do |food| %>
         <li class="list">
           <div class="food-img-content">
             <%= image_tag food.image, class: "food-img" if food.image.attached? %>

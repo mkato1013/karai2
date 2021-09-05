@@ -1,13 +1,13 @@
 class FoodsController < ApplicationController
 
   def index
-    to = Time.current.at_beginning_of_day
+    to = Time.current
     from = (to - 1.week)
     user = current_user
-    if user.present?
+    if user.present? && user.following_ids.present?
       @foods = Food.order("created_at DESC").where(user_id: [current_user.id,*current_user.following_ids]).where(created_at: from...to)
     else
-      @foods =Food.order("created_at DESC").where(created_at: from...to).limit(25)
+      @foods = Food.order("created_at DESC").where(created_at: from...to).limit(25)
     end
     @like = Like.new
     @ranks = Food.find(Like.group(:food_id).order('count(food_id) desc').limit(5).pluck(:food_id))

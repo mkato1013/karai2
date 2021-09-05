@@ -75,17 +75,27 @@
 
 <%# モーダルウィンドウ %>
 <div class="modalsearch">
-  <h2 class="modalsearch-title">Let's Search !</h2>
-    <div class="modalsearch-contents">
-      <%= search_form_for @q, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
-        <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '名前など' %>
-        <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "TYPE A KEYWORD" %>
-        <%= f.label :spicy_level_id_eq, '辛さ' %>
-        <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, include_blank: '--' %>
-        <%= f.submit "SEARCH" %>
-      <% end %>
-    </div>
   <i class="far fa-times-circle modalsearch-close"></i>
+  <div class="modalsearch-contents">
+    <div class="modalsearch-left">
+      <h2 class="modalsearch-title">Let's<br/>Search !</h2>
+    </div>
+    <div class="modalsearch-right">
+      <div class="modalsearch-contents">
+        <%= search_form_for @q, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
+          <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '店名・メニュー名・駅名' %><br/>
+          <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "TYPE A KEYWORD" %><br/>
+          <%= f.label :user_nickname_cont, 'ユーザー名' %><br/>
+          <%= f.text_field :user_nickname_cont, placeholder: "TYPE A KEYWORD" %><br/>
+          <%= f.label :meal_type_id_eq, '種類' %><br/>
+          <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, include_blank: '--', disabled: 0 %><br/>
+          <%= f.label :spicy_level_id_eq, '辛さ' %><br/>
+          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, include_blank: '--' %><br/>
+          <%= f.submit "SEARCH" %><br/>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="masksearch"></div>
 

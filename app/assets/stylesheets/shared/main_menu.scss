@@ -73,12 +73,17 @@ ul {
   display: none;
 }
 
+.modalsearch-contents {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .modalsearch-title {
   height: 10vh;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 8vh;
-  padding-top: 3vh;
+  font-size: 15vh;
   text-align: center;
 }
 

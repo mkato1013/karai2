@@ -34,7 +34,7 @@
         <h2 class="menu-content">MY PAGE</h2>
       <% end %>
     <% else %>
-      <%= link_to(new_user_session_path, method: :get, class: "login") do %>
+      <%= link_to(new_user_session_path, method: :get, class: "log-in") do %>
         <div class="fas fa-door-open"></div>
         <h2 class="menu-content">LOG IN</h2>
       <% end %>
@@ -42,7 +42,7 @@
   </div>
   <div class="menu-details">
     <% if user_signed_in? %>
-      <%= link_to(destroy_user_session_path, method: :delete, class: "logout") do %>
+      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out") do %>
         <div class="fas fa-door-open"></div>
         <h2 class="menu-content">LOG OUT</h2>
       <% end %>

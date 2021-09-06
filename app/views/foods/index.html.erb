@@ -1,45 +1,58 @@
 <%= render "shared/header" %>
 
 <div class="main">
+
+<%= render "shared/ranks_index" %>
+
   <div class="food-contents">
-  <h2 class="food-contents-title">What's New!</h2>
-    <ul class="food-lists">
-      <% @foods.each do |food| %>
-        <li class="list">
-          <div class="food-img-content">
-          <%= link_to food_path(food) do %>
-            <%= image_tag food.image, class: "food-img" if food.image.attached? %>
-            <div class="food-img-info">
-              <h2 class="shop-name">
-                <%= food.shop_name%>
-              </h2>
-              <h2 class="food-name">
-                <%= food.food_name%>
-              </h2>
-              <h2 class="food-spicylevel">
-                <%= food.spicy_level.name%>
-              </h2>
+    <h2 class="food-contents-title">What's New!</h2>
+      <ul class="food-lists">
+        <% @foods.each do |food| %>
+         <li class="list">
+            <div class="food-img-content">
+              <div class="food-post-user">
+                <div>
+                  <%= link_to user_path(food.user_id) do %>
+                    <% if food.user.icon.present? %>
+                      <%= image_tag food.user.icon, class: "icon-img" %>
+                    <% else %>
+                      <i class="fas fa-user-circle"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= link_to user_path(food.user_id),class: "index-food-post-user" do %>
+                    <%= food.user.nickname %>
+                  <% end %>
+                </div>
+              </div>
+              <%= link_to food_path(food) do %>
+                <%= image_tag food.image, class: "food-img" if food.image.attached? %>
               <% end %>
-              <h2 class="food-post-user">
-                <%= link_to user_path(food.user_id) do %>
-                <%= food.user.nickname %>
-              <% end %>
-              </h2>
+                <div class="food-img-info">
+                <h1>店名</h1>
+                  <h2 class="index-shop-name">
+                    <%= food.shop_name%>
+                  </h2>
+                <h1>メニュー名</h1>
+                  <h2 class="index-food-name">
+                    <%= food.food_name%>
+                  </h2>
+                <h1>辛さ採点</h1>
+                  <h2 class="index-food-spicylevel">
+                    <%= food.spicy_level.name%>
+                  </h2>
+                </div>
+              
+              
+              <div class="food-likes-<%= food.id %>">
+                <%= render partial:"likes/like", locals: {food: food} %>
+              </div>
+
             </div>
-              <h2 class="food-likes-index">KALIKE
-                <%= food.likes.count %>
-              </h2>
-              <% if user_signed_in? %>
-                <% if current_user.already_liked?(food) %>
-                  <%= link_to "いいねを取り消す", food_likes_path(food,@like), method: :delete %>
-                <% else %>
-                  <%= link_to "いいね", food_likes_path(food), method: :post %>
-                <% end %>
-              <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+        <% end %>
+      </ul>
   </div>
 </div>
 

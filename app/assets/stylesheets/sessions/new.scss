@@ -1,0 +1,29 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url("hot.png");
+  background-size: cover;
+
+}
+
+.login-title {
+  color: rgb(255, 255, 255);
+  font-family: 'Permanent Marker', cursive;  font-size: 20vh;
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.login-subtitle {
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12vh;
+  text-align: start;
+  transform: rotate(-7deg);
+  padding-left: 15vw;
+  position: absolute;
+}
+
+.login-form {
+  padding-top: 10vh;
+  padding-left: 60vw;
+}

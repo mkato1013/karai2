@@ -1,7 +1,4 @@
-<div class="postfood-contents">
-  <header class="postfood-header">
-    KARAI
-  </header>
+<%= render "shared/header2" %>
 
   <div class="postfood-main">
     <h2 class="postfood-title">YOUR KARAI</h2>
@@ -18,7 +15,7 @@
         <div class="click-upload">
           <%= f.file_field :image, id:"food-image" %>
         </div>
-        <%= image_tag @food.image.variant(resize: '200x200'), class: 'food-image' if @food.image.attached? %>
+        <%= image_tag @food.image, class: 'food-image' if @food.image.attached? %>
       </div>
     </div>
     <%# /食べ物画像 %>
@@ -111,7 +108,7 @@
 
     <%# 下部ボタン %>
     <div class="postfood-btn-contents">
-      <%= f.submit "！投稿！" ,class:"postfood-btn" %>
+      <%= f.submit "！変更！" ,class:"postfood-btn" %>
     </div>
     <%# /下部ボタン %>
     

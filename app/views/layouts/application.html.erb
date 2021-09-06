@@ -2,6 +2,8 @@
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <title>KaraiApp</title>
     <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
     <%= csrf_meta_tags %>
@@ -9,10 +11,16 @@
     <%= stylesheet_link_tag 'application', media: 'all'%>
     <%= javascript_pack_tag 'application' %>
     <script src="https://kit.fontawesome.com/811339f864.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
   </head>
 
   <body>
     <%= yield %>
+    <%# <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> %>
+    <%# <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </body>
 </html>

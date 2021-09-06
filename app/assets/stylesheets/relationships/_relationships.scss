@@ -1,0 +1,30 @@
+.btn-mypage-follow {
+  width: 10vw;
+  height: vh;
+  color: white;
+  border: white solid 0.1px;
+  border-radius: 25%;
+  background: #7ff6ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#7ff6ff9f), to(#00aeffa4));
+}
+
+
+.btn-follow-delete {
+  color: white;
+  border: white solid 0.1px;
+  border-radius: 25%;
+  background: #fd6363;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff9191), to(#ff0a0a));
+}
+
+.btn-follow-create {
+  color: white;
+  border: white solid 0.1px;
+  border-radius: 25%;
+  background: #666666;
+  background: -webkit-gradient(linear, left bottom, left top, from(#666666), to(#cfcfcf));
+}
+
+.btn-follow-create:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff9191), to(#ff0a0a));
+}

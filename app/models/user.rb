@@ -13,8 +13,9 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id
   has_many :followers, through: :reverse_of_relationships, source: :following
 
-  
-  has_one_attached :image
+  has_one_attached :icon
+
+  has_many :comments
   
   def already_liked?(food)
     self.likes.exists?(food_id: food)

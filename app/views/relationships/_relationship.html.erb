@@ -1,0 +1,24 @@
+<div class="mypage-followcount-btn">
+  <button class="btn btn-mypage-follow">フォロー
+    <i class="fas fa-angle-right fa-position-right"></i>
+    <%= link_to @user.followings.count, followings_user_path(@user) %>
+  </button>
+  <button class="btn btn-mypage-follow">フォロワー
+    <i class="fas fa-angle-right fa-position-right"></i>
+    <%= link_to @user.followers.count, followers_user_path(@user) %>
+  </button>
+</div>
+
+<div class="mypage-follow-btn">
+  <% unless @user == current_user %>
+    <% if @user.is_followed_by?(current_user) %>
+      <%= link_to user_relationships_path(@user), method: :delete, remote: true do %>
+        <button class="btn btn-follow-delete">フォロー中</button>
+      <% end %>
+    <% else %>
+      <%= link_to user_relationships_path(@user), method: :post, remote: true do %>
+        <button class="btn btn-follow-create">フォローする</button>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

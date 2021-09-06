@@ -1,6 +1,24 @@
+// フォントのみ記述
+.index-food-post-user,
+.index-shop-name,
+.index-food-name,
+.index-food-spicylevel {
+  font-family: "M PLUS Rounded 1c";
+}
+// /フォントのみ記述
+
+// linkの下線削除
+.index-food-post-user,
+.index-shop-name,
+.index-food-name,
+.index-food-spicylevel {
+  text-decoration: none;
+}
+// /linkの下線削除
+
+
 .main {
   width: 100vw;
-  height: 300vh;
   background-image: image-url("hotmain.png");
   background-size: cover;
   background-repeat: repeat;
@@ -9,11 +27,10 @@
 }
 
 .food-contents {
-  height: 300vh;   //投稿分に合わせて調整
   width: 100vw;
 }
 
-.food-contents-title {
+.ranks-title,.food-contents-title {
   width: 100vw;
   height: 10vh;
   color: rgb(0, 0, 0);
@@ -27,10 +44,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.food-img-content {
+  padding: 5vh;
+  border: 5px solid #ff0000;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.food-post-user {
+  display: flex;
+  align-items: center;
+}
+
+.icon-img {
+  width: 7vh;
+  height: 7vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.fa-user-circle {
+  font-size: 7vh;
 }
 
 .food-img {
   width: 20vh;
   height: 20vh;
-  margin: 20px;
+  margin: 0.5vh;
+  object-fit: cover;
+}
+
+.index-shop-name,
+.index-food-name,
+.index-food-spicylevel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vh;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+  color: #000000;
+  background: #ffc29050;
+  border: 3px solid #ff7c7c;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
 }

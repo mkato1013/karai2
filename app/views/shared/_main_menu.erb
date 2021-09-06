@@ -6,6 +6,7 @@
       <h2 class="menu-content">HOME</h2>
     <% end %>
   </div>
+
   <div class="menu-details">
     <div class="fas fa-bars"></div>
     <h2 class="menu-content">MENU</h2>
@@ -13,45 +14,99 @@
 
 <%# JavaScriptでボタン表示 %>
   <div class="menu-details">
-    <div class="fas fa-search" id="back-btn"></div>
-      <h2 class="menu-content" id="back-btn">SEARCH</h2>
-      <ul>
-        <%= form_with(url: search_foods_path, local: true, method: :get, class: "food-search", id:"pull-down") do |form| %>
-          <li><%= form.text_field :keyword, placeholder: "TYPE A KEYWORD" %></li>
-          <li><%= form.submit "SEARCH" %></li>
-        <% end %>
-      </ul>
+    <div class="search-contents">
+      <div class="fas fa-search" id="back-btn"></div>
+        <h2 class="menu-content" id="back-btn">SEARCH</h2>
+    </div>
   </div>
 <%# /JavaScriptでボタン表示 %>
 
   <div class="menu-details">
     <%= link_to(new_food_path, class: 'main-menu-btn') do %>
       <div class="fab fa-hotjar"></div>
-      <span class='postfood-btn-text'>KARAI</span>
+      <h2 class='menu-content'>KARAI</h2>
     <% end %>
   </div>
-  <% if user_signed_in? %>
   <div class="menu-details">
-    <%= link_to(user_path(current_user), class: "user-nickname") do %>
-      <div class="fas fa-portrait"></div>
-      <h2 class="menu-content">MY PAGE</h2>
+    <% if user_signed_in? %>
+      <%= link_to(user_path(current_user), class: "user-nickname") do %>
+        <div class="fas fa-portrait"></div>
+        <h2 class="menu-content">MY PAGE</h2>
+      <% end %>
+    <% else %>
+      <%= link_to(new_user_session_path, method: :get, class: "log-in") do %>
+        <div class="fas fa-door-open"></div>
+        <h2 class="menu-content">LOG IN</h2>
+      <% end %>
     <% end %>
   </div>
-  <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-  <% end %>
+  <div class="menu-details">
+    <% if user_signed_in? %>
+      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out") do %>
+        <div class="fas fa-door-open"></div>
+        <h2 class="menu-content">LOG OUT</h2>
+      <% end %>
+    <% else %>
+      <%= link_to(new_user_registration_path, method: :get, class: "sign-up") do %>
+        <div class="far fa-address-card"></div>
+        <h2 class="menu-content">SIGN UP</h2>
+      <% end %>
+    <% end %>
+  </div>
   <div class="menu-details">
     <div class="fas fa-ice-cream"></div>
     <h2 class="menu-content">AMAI</h2>
   </div>
-  <div class="menu-details">
-    <% if user_signed_in? %>
-      <%= link_to(destroy_user_session_path, method: :delete, class: "logout") do %>
-        <div class="fas fa-door-open"></div>
-        <h2 class="menu-content">LOG OUT</h2>
-      <% end %>
-    <% end %>
-  </div>
 
 </div>
+
+<script>
+  $(function() {
+    $('.menu-bar').hide();
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 120){
+        $('.menu-bar').fadeIn()
+      }else{
+        $('.menu-bar').fadeOut();
+      }
+    });
+  });
+</script>
+
+<%# モーダルウィンドウ %>
+<div class="modalsearch">
+  <i class="far fa-times-circle modalsearch-close"></i>
+  <div class="modalsearch-contents">
+    <div class="modalsearch-left">
+      <h2 class="modalsearch-title">Let's<br/>Search !</h2>
+    </div>
+    <div class="modalsearch-right">
+      <div class="modalsearch-contents">
+        <%= search_form_for @q, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
+          <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '店名・メニュー名・駅名' %><br/>
+          <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "TYPE A KEYWORD" %><br/>
+          <%= f.label :user_nickname_cont, 'ユーザー名' %><br/>
+          <%= f.text_field :user_nickname_cont, placeholder: "TYPE A KEYWORD" %><br/>
+          <%= f.label :meal_type_id_eq, '種類' %><br/>
+          <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, include_blank: '--', disabled: 0 %><br/>
+          <%= f.label :spicy_level_id_eq, '辛さ' %><br/>
+          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, include_blank: '--' %><br/>
+          <%= f.submit "SEARCH" %><br/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="masksearch"></div>
+
+<script>
+  $(function() {
+    $('.search-contents').on('click',function(){
+      $('.modalsearch,.masksearch').fadeIn();
+    });
+    $('.modalsearch-close,.masksearch').on('click',function(){
+      $('.modalsearch,.masksearch').fadeOut();
+    });
+  });
+</script>
+<%# /モーダルウィンドウ %>

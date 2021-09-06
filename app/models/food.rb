@@ -3,11 +3,11 @@ class Food < ApplicationRecord
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
   has_one_attached :image
+  has_many :comments
 
   def self.search(search)
     if search != ""
-      Food.where("food_name LIKE(?)", "%#{search}%")
-      # Food.where("spicy_level_id LIKE(?)", "%#{search}%")
+      Food.where(["shop_name LIKE(?) OR shop_name_kana LIKE(?) OR food_name LIKE(?) OR station LIKE(?)", "%#{search}%  %#{search}%  %#{search}% %#{search}%"])
     else
       Food.all
     end

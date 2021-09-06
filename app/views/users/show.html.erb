@@ -1,47 +1,54 @@
 <%= render "shared/header2" %>
 
 <div class="mypage-contents">
+  <h2 class="mypage-title">MY PAGE</h2>
+
   <div class="mypage-main">
+
+<%# プロフィール %>
     <div class="mypage-intro">
-      <h2 class="mypage-title">MY PAGE</h2>
-      <% if @image.present? %>
-        <%= image_tag @image, class: "mypage-image" %>
-      <% else %>
-        <%= image_tag "sample.png", class: "mypage-image" %>
-      <% end %>
 
-      <div class="mypage-follow-info">
-        <h2 class="mypage-follow">フォロー</h2>
-          <%= link_to @user.followings.count, followings_user_path(@user) %>
-        <h2 class="mypage-follow">フォロワー</h2>
-          <%= link_to @user.followers.count, followers_user_path(@user) %>
-      </div>
-      
-      <% if @user == current_user %>
-        <p class="lead text-muted">自分のマイページです<%= current_user.email %></p>
-      <% else %>
-
-        <% if @user.is_followed_by?(current_user) %>
-          <%= link_to user_relationship_path(@user), method: :delete do %>
-            <button class="btn btn-danger">フォロー解除</button>
-          <% end %>
+<%# 左プロフィール欄 %>
+      <div class="mypage-intro-left">
+        <% if @user.icon.present? %>
+          <%= image_tag @user.icon, class: "mypage-image" %>
         <% else %>
-          <%= link_to user_relationships_path(@user), method: :post do %>
-            <button class="btn btn-primary">フォロー</button>
-          <% end %>
+          <i class="fas fa-user"></i>
         <% end %>
-      <% end %>
+        <h2 class="mypage-nickname">
+          <%= @user.nickname %>
+        </h2>
+      </div>
+<%# /左プロフィール欄 %>
 
-      <h2 class="mypage-nickname">
-        <%= @user.nickname %>
-      </h2>
-      <h2 class="mypage-introduction">一言入れる機能
-        <%= @user.introduction %>
-      </h2>
+<%# 右プロフィール欄 %>
+      <div class="mypage-intro-right">
+        <div class="mypage-intro-topright">
+
+          <div class="mypage-follow-contents-<%= @user.id %>">
+            <%= render partial:"relationships/relationship", lacals: {user: @user} %>
+          </div>
+
+          <div class="mypage-introduction-edit">
+            <% if user_signed_in? && @user == current_user %>
+              <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="mypage-intro-bottomright">
+          <h2 class="mypage-introduction">
+            <%= @user.introduction %>
+          </h2>
+        </div>
+      </div>
+<%# /右プロフィール欄 %>
     </div>
+<%# /プロフィール欄 %>
 
-      <div class="contents-row">
-      <% @user.foods.each do |food| %>
+  <h2 class="contents-title">MY KARAI</h2>
+    <div class="contents-row">
+      <% @foods.each do |food| %>
         <li class="list">
           <div class="food-img-content">
             <%= image_tag food.image, class: "food-img" if food.image.attached? %>
@@ -76,8 +83,7 @@
           </div>
         </li>
       <% end %>
-      </div>
-  </div>
+    </div>
 </div>
 
 <%= render "shared/main_menu" %>

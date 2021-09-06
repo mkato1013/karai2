@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <% if current_user.already_liked?(food) %>
+    <%= link_to food_likes_path(food,@like), method: :delete, remote: true do %>
+      <i class="fas fa-fire-alt likedestroy"></i>
+    <% end %>
+  <% else %>
+    <%= link_to food_likes_path(food), method: :post, remote: true do %>
+      <i class="fas fa-fire-alt likecreate"></i>
+    <% end %>
+  <% end %>
+<% end %>
+<h2 class="food-likes-index">
+  「<%= food.likes.count %>」件のKALIKE
+</h2>

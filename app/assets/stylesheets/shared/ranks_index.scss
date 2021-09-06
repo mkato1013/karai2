@@ -1,0 +1,82 @@
+// フォントのみ記述
+.ranks-food-post-user {
+  font-family: "M PLUS Rounded 1c";
+}
+// /フォントのみ記述
+
+// linkの下線削除
+.ranks-food-post-user,
+.ranks-food-img-info {
+  text-decoration: none;
+}
+// /linkの下線削除
+
+
+.ranks-img {
+  margin: 0vh 20vh;
+}
+
+.ranks-img-content {
+  padding: 5vh;
+  border: 10px solid #ff5511;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  margin: 10px 200px;
+  background-color: rgba(255, 255, 255, 0.692);
+}
+
+.ranks-food-post {
+  display: flex;
+  align-items: center;
+}
+
+.ranks-food-post-user {
+  margin-left: 1vw;
+  font-size: 20px;
+}
+
+.ranks-contents {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ranks-food-img {
+  width: 25vw;
+  height: 25vw;
+  margin: 1vw;
+  object-fit: cover;
+  background: #ffc29050;
+  border: 2px solid #ffffff;
+  border-radius: 5vh;
+}
+
+.ranks-shop-name,
+.ranks-food-name,
+.ranks-food-spicylevel {
+  font-size: 4vh;
+  color: #000000;
+  background: #ffc29050;
+  border: 4px solid #ffab8a;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  margin: 0.5vh 0;
+  padding: 0.5vh;
+}
+
+.ranks-food-spicylevel {
+  
+}
+
+// slick設定
+.slick-prev::before {
+  color: black !important;
+  z-index: 100;
+  margin: 0px;
+  left: 120px;
+}
+
+.slick-next::before {
+  color: black !important;
+  z-index: 100;
+  margin: 0px;
+  right: 120px;
+}
+// /slick設定

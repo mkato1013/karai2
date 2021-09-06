@@ -14,7 +14,7 @@
         <% if @user.icon.present? %>
           <%= image_tag @user.icon, class: "mypage-image" %>
         <% else %>
-          <%= image_tag "sample.png", class: "mypage-image" %>
+          <i class="fas fa-user-circle mypage-image"></i>
         <% end %>
 
         <h2 class="mypage-nickname">

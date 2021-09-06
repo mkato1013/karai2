@@ -1,14 +1,10 @@
 <%= render "shared/header2" %>
-
 <div class="mypage-contents">
   <h2 class="mypage-title">MY PAGE</h2>
-
   <div class="mypage-main">
 
-<%# プロフィール %>
+<%# プロフィール欄 %>
     <div class="mypage-intro">
-
-<%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
         <% if @user.icon.present? %>
           <%= image_tag @user.icon, class: "mypage-image" %>
@@ -19,30 +15,18 @@
           <%= @user.nickname %>
         </h2>
       </div>
-<%# /左プロフィール欄 %>
-
-<%# 右プロフィール欄 %>
       <div class="mypage-intro-right">
         <div class="mypage-intro-topright">
-
           <div class="mypage-follow-contents-<%= @user.id %>">
             <%= render partial:"relationships/relationship", lacals: {user: @user} %>
           </div>
-
-          <div class="mypage-introduction-edit">
-            <% if user_signed_in? && @user == current_user %>
-              <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-            <% end %>
-          </div>
         </div>
-        
         <div class="mypage-intro-bottomright">
           <h2 class="mypage-introduction">
-            <%= @user.introduction %>
+            <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
           </h2>
         </div>
       </div>
-<%# /右プロフィール欄 %>
     </div>
 <%# /プロフィール欄 %>
 
@@ -69,14 +53,14 @@
               </ul>
             </div>
 
-            <div class="food-img-info2">
-              <h2 class="shop-name2">
+            <div class="usershow-food-img-info">
+              <h2 class="usershow-shop-name">
               <%= food.shop_name%>
               </h2>
-              <h2 class="food-name2">
+              <h2 class="usershow-food-name">
               <%= food.food_name%>
               </h2>
-              <h3 class="spicy-level-category2">
+              <h3 class="usershow-spicy-level-category">
               <%= food.spicy_level.name%>
               </h3>
             </div>
@@ -84,8 +68,8 @@
         </li>
       <% end %>
     </div>
+  </div>
 </div>
 
 <%= render "shared/main_menu" %>
-
 <%= render "shared/footer" %>

@@ -23,6 +23,7 @@
 .mypage-image {
   height: 40vh;
   width: 40vh;
+  object-fit: cover;
 }
 
 .fa-user {
@@ -30,11 +31,22 @@
 }
 
 .mypage-intro-right {
-  padding: 5vh;
+  padding: 2vh 5vw;
 }
 
 .mypage-intro-topright {
   display: flex;
+}
+
+
+.mypage-intro-bottomright {
+  width: 30vw;
+  height: 25vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: black double 5px;
+  border-radius: 15% 10% 18% 8% / 10% 12% 15% 18%;
+  margin: 3vh 0vw;
+  padding: 2vh 2vw;
 }
 
 .contents-row {
@@ -52,19 +64,22 @@
   padding: 5vh;
 }
 
-.food-img-info2 {
+.usershow-food-img-info {
   width: 10vw;
 }
 
-.shop-name2,.food-name2,.spicy-level-category2 {
+.usershow-shop-name,
+.usershow-food-name,
+.usershow-spicy-level-category {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: sans-serif;
+  font-family: "M PLUS Rounded 1c";
   font-size: 1vw;
-  padding: 0.5em 1em;
+  padding: 0.1em 0.5em;
   margin: 0.5em 0;
-  color: #232323;
-  background: #ffe8e8;
-  border-left: solid 10px #ff6e6e;
+  color: #000000;
+  background: #ffc29050;
+  border: 3px solid #ff7c7c;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
 }

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @food = Food.find(params[:food_id])
     @comment = Comment.create(comment_params)
-    @comments = @food.comments
+    @comments = @food.comments.order("created_at DESC")
   end
 
   private

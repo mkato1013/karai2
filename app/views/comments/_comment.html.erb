@@ -1,17 +1,31 @@
-<% if user_signed_in? %>
-  <%= form_with(model: [@food, @comments],url: food_comments_path(@food,@comment), remote: true) do |f| %>
-    <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-    <%= f.submit "SEND" %>
-  <% end %>
-<% else %>
-  <strong><p>※※※ コメントするには新規登録/ログインが必要 ※※※</p></strong>
-<% end %>
-<div class="food-comments">
-  <h2>Comments</h2>
-  <% @comments.each do |comment| %>
-    <%= link_to user_path(comment.user_id) do %>
-      <%= comment.user.nickname %>
+<div class="comments-comment-contents">
+  <% if user_signed_in? %>
+    <%= form_with(model: [@food, @comments],url: food_comments_path(@food,@comment), remote: true) do |f| %>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: "food-comment-textbox" %>
+      <%= f.submit "SEND" ,class: "food-comment-textbox-send" %>
     <% end %>
-      <%= comment.text %>
   <% end %>
+  <ul class="show-food-comments">
+    <% @comments.each do |comment| %>
+      <li class="show-food-comment">
+        <div class="comment-food-post-users">
+        <div>
+        <%= link_to user_path(comment.user_id) do %>
+          <% if comment.user.icon.present? %>
+            <%= image_tag comment.user.icon, class: "icon-img" %>
+          <% else %>
+            <i class="fas fa-user-circle"></i>
+          <% end %>
+        <% end %>
+        </div>
+        <div>
+        <%= link_to user_path(comment.user_id),class: "comment-food-post-user" do %>
+          <%= comment.user.nickname %>
+        <% end %>
+        <%= comment.text %>
+        </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

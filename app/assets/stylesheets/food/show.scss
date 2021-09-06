@@ -1,0 +1,89 @@
+.food-contents {
+  width: 100vw;
+}
+
+.show-food-contents-title {
+  width: 100vw;
+  height: 10vh;
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 10vh;
+  padding-top: 3vh;
+  text-align: center;
+}
+
+.food-lists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.show-food-img-content {
+  margin: 1vh 20vw;
+  padding: 5vh 1vw;
+  border: 5px solid #ff0000;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  display: flex;
+  justify-content: space-around;
+}
+
+.food-post-user {
+  display: flex;
+  align-items: center;
+}
+
+.icon-img {
+  width: 7vh;
+  height: 7vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.fa-user-circle {
+  font-size: 7vh;
+}
+
+.show-food-post-user {
+  margin-left: 1vw;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.show-food-img {
+  width: 25vw;
+  height: 50vh;
+  margin: 1vh 0.5vw;
+  object-fit: cover;
+}
+
+.show-food-comments-title {
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 4vh;
+  padding-top: 1vh;
+  text-align: center;
+}
+
+.show-food-mealtype,
+.show-foodshop-name,
+.show-foodname,
+.show-food-spicylevel,
+.show-foodshop-station,
+.show-foodshop-mood,
+.show-shop-waitingtime,
+.show-foodshop-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vw;
+  padding: 0.1em 1em;
+  margin: 0.5em 0;
+  color: #000000;
+  background: #ffc29050;
+  border: 3px solid #ff7c7c;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  font-family: "M PLUS Rounded 1c";
+}

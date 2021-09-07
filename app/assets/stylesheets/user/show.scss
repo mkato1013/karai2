@@ -56,12 +56,31 @@
   flex-wrap: wrap;
 }
 
-.list {
+.myfood-list {
   list-style: none;
 }
 
 .food-img-content {
   padding: 5vh;
+}
+
+.user-show-food-img {
+  width: 20vh;
+  height: 20vh;
+  margin: 0.5vh;
+  object-fit: cover;
+}
+
+.more-lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa-info-circle,
+.fa-edit,
+.fa-trash-alt {
+  padding-top: 0.5vh;
+  font-size: 1.5vw;
 }
 
 .usershow-food-img-info {
@@ -83,3 +102,9 @@
   border: 3px solid #ff7c7c;
   border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
 }
+
+.usershow-food-info {
+  display: flex;
+  justify-content: flex-end;
+}
+

@@ -31,16 +31,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def index
-  #   @q = User.ransack(params[:id])
-  #   @users = @q.result
-  # end
-
-  # def search
-  #   @q = User.ransack(params[:id])
-  #   @users = @q.result
-  # end
-
   private
 
   def user_params

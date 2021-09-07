@@ -1,45 +1,61 @@
 <%= render "shared/header2" %>
-
-<h2 class="edit-mypage-title">EDIT MY PAGE</h2>
-
-<%= form_with model: current_user, local: true do |f| %>
+<div class="edit-mypage-contents">
+  <h2 class="edit-mypage-title">EDIT MY PAGE</h2>
+  <div class="mypage-main">
+    <%= form_with model: current_user, local: true do |f| %>
 
 <%# プロフィール %>
-    <div class="mypage-intro">
+      <div class="edit-mypage-intro">
+        <div class="edit-mypage-intro-left">
+          <div class="edit-user-icon">
+            <h2 class="edit-user-icon-title">現在のアイコン</h2>
 
-<%# 左プロフィール欄 %>
-      <div class="mypage-intro-left">
-        <h2 class="mypage-title">MY PAGE</h2>
-        <%= f.file_field :icon, id:"icon-image" %>
-        <% if @user.icon.present? %>
-          <%= image_tag @user.icon, class: "mypage-image" %>
-        <% else %>
-          <i class="fas fa-user-circle mypage-image"></i>
-        <% end %>
+            <label class="edit-click-upload">
+              <%= f.file_field :icon, class:"edit-food-image-text", type:"file" %>アイコンを変更
+            </label>
+            <% if @user.icon.present? %>
+              <%= image_tag @user.icon, class: "mypage-image" %>
+            <% else %>
+              <i class="fas fa-user-circle mypage-image"></i>
+            <% end %>
+          </div>
+        </div>
 
-        <h2 class="mypage-nickname">
-          <%= f.label :nickname, "ニックネーム" %>
-          <%= f.text_field :nickname, class:"mypage-nickname-text", id:"mypage-nickname-text", placeholder:"（40文字以内)", maxlength:"40" %>
-        </h2>
+        <div class="edit-mypage-intro-right">
+          <div class="edit-mypage-contents-info">
+            <h2 class="edit-mypage-nickname">
+              <%= f.label :nickname, "ニックネーム" %>
+              <%= f.text_field :nickname, class:"edit-mypage-nickname-text", placeholder:"（40文字以内)", maxlength:"40" %>
+            </h2>
+          </div>
 
-        <h2 class="mypage-email">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.text_field :email, class:"mypage-email-text", id:"mypage-email-text" %>
-        </h2>
+          <div class="edit-mypage-contents-info">
+            <h2 class="edit-mypage-email">
+              <%= f.label :email, "メールアドレス" %>
+              <%= f.text_field :email, class:"edit-mypage-email-text" %>
+            </h2>
+          </div>
 
-        <h2 class="mypage-introduction">
-          <%= f.label :introduction, "紹介文" %>
-          <%= f.text_area :introduction, class:"mypage-introduction-text", id:"mypage-introduction-text", placeholder:"（200文字以内)", maxlength:"200" %>
-        </h2>
+          <div class="edit-mypage-contents-info">
+            <h2 class="edit-mypage-introduction">
+              <%= f.label :introduction, "紹介文" %>
+              <%= f.text_area :introduction, class:"edit-mypage-introduction-text", placeholder:"（200文字以内)", maxlength:"200" %>
+            </h2>
+          </div>
+        </div>
       </div>
-<%# /左プロフィール欄 %>
-    </div>
 <%# /プロフィール欄 %>
 
-    <%# 下部ボタン %>
-    <div class="mypage-edit-btn-contents">
-      <%= f.submit "！変更！" ,class:"mypage-edit-btn" %>
-    </div>
-    <%# /下部ボタン %>
-    
-<% end %>
+<%# 下部ボタン %>
+      <div class="mypage-edit-btn-contents">
+        <%= f.submit "変更" ,class:"mypage-edit-btn" %>
+      </div>
+<%# /下部ボタン %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render "shared/main_menu" %>
+
+<%= render "shared/footer" %>

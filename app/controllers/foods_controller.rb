@@ -61,4 +61,10 @@ class FoodsController < ApplicationController
     redirect_to user_path(@food.user_id)
   end
 
+  private
+
+  def food_params
+    params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: current_user.id)
+  end
+
 end

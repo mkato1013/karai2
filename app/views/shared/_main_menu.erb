@@ -1,15 +1,19 @@
 <div class="menu-bar">
-
+  
   <div class="menu-details">
     <%= link_to(root_path, class: 'main-menu-btn') do %>
-      <div class="fas fa-home"></div>
-      <h2 class="menu-content">HOME</h2>
+      <div class="menu-details-home">
+        <i class="fas fa-home"></i>
+        <h2 class="menu-content">HOME</h2>
+      </div>
     <% end %>
   </div>
 
   <div class="menu-details">
-    <div class="fas fa-bars"></div>
-    <h2 class="menu-content">MENU</h2>
+    <div class="menu-details-menu">
+      <i class="fas fa-bars"></i>
+      <h2 class="menu-content">MENU</h2>
+    </div>
   </div>
 
 <%# JavaScriptでボタン表示 %>
@@ -23,39 +27,54 @@
 
   <div class="menu-details">
     <%= link_to(new_food_path, class: 'main-menu-btn') do %>
-      <div class="fab fa-hotjar"></div>
-      <h2 class='menu-content'>KARAI</h2>
+      <div class="menu-details-new">
+        <i class="fab fa-hotjar"></i>
+        <h2 class='menu-content'>POST</h2>
+      </div>
     <% end %>
   </div>
+
   <div class="menu-details">
     <% if user_signed_in? %>
       <%= link_to(user_path(current_user), class: "user-nickname") do %>
-        <div class="fas fa-portrait"></div>
-        <h2 class="menu-content">MY PAGE</h2>
+        <div class="menu-details-mypage">
+          <i class="fas fa-portrait"></i>
+          <h2 class="menu-content">MY PAGE</h2>
+        </div>
       <% end %>
     <% else %>
       <%= link_to(new_user_session_path, method: :get, class: "log-in") do %>
-        <div class="fas fa-door-open"></div>
-        <h2 class="menu-content">LOG IN</h2>
+        <div class="menu-details-login">
+          <i class="fas fa-door-open"></i>
+          <h2 class="menu-content">LOG IN</h2>
+        </div>
       <% end %>
     <% end %>
   </div>
+
   <div class="menu-details">
     <% if user_signed_in? %>
       <%= link_to(destroy_user_session_path, method: :delete, class: "log-out") do %>
-        <div class="fas fa-door-open"></div>
-        <h2 class="menu-content">LOG OUT</h2>
+        <div class="menu-details-logout">
+          <i class="fas fa-door-open"></i>
+          <h2 class="menu-content">LOG OUT</h2>
+        </div>
       <% end %>
     <% else %>
       <%= link_to(new_user_registration_path, method: :get, class: "sign-up") do %>
-        <div class="far fa-address-card"></div>
-        <h2 class="menu-content">SIGN UP</h2>
+        <div class="menu-details-signup">
+          <div class="far fa-address-card"></div>
+          <h2 class="menu-content">SIGN UP</h2>
+        </div>
       <% end %>
     <% end %>
   </div>
+
   <div class="menu-details">
-    <div class="fas fa-ice-cream"></div>
-    <h2 class="menu-content">AMAI</h2>
+    <div class="menu-details-amai">
+      <div class="fas fa-ice-cream"></div>
+      <h2 class="menu-content">AMAI</h2>
+    </div>
   </div>
 
 </div>

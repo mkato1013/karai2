@@ -28,7 +28,7 @@
           <%# コメント欄 %>
           <h2 class="show-food-comments-title">Comments !</h2>
             <div class="food-comments-contents-<%= @food.id %>">
-                <%= render partial:"comments/comment", lacals: {food: @food} %>
+                <%= render partial:"comments/comment", locals: {food: @food} %>
             </div>
           <%# /コメント欄 %>
 

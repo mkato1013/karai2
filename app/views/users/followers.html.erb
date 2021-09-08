@@ -1,24 +1,37 @@
+<%= render "shared/header2" %>
+
 <div class="followers-contents">
-  <div class="row d-flex justify-content-center">
-    <div class="col-10 mt-5">
-      <h1>FOLLOWERS</h1>
-        <h2 class="followers-contents-title">Nickname</h2>
+  <div class="followers-main">
+    <h2 class="followers-title">FOLLOWERS</h2>
+      <div class="followers-lineup">
+        <ul class="followers-lists">
           <% @users.each do |user| %>
-            <%= link_to user_path(user) do %>
-              <%= user.nickname %>
-            <% end %>
-              <% if user != current_user %>
-                <% if user.is_followed_by?(current_user) %>
-                  <%=link_to user_relationships_path(user), method: :delete do %>
-                    <button type="button" class="btn btn btn-danger">フォロー解除</button>
-                  <% end %>
-                <% else %>
-                  <%=link_to user_relationships_path(user), method: :post do %>
-                    <button type="button" class="btn btn btn-primary">フォロー</button>
+            <div class="followers-list">
+              <div class="followers-nickname">
+              <%= link_to user_path(user) do %>
+                <%= user.nickname %>
+              <% end %>
+              </div>
+              <div class="followers-follow-btn">
+                <% if user != current_user %>
+                  <% if user.is_followed_by?(current_user) %>
+                    <%=link_to user_relationships_path(user), method: :delete do %>
+                      <button type="button" class="btn btn btn-danger">フォロー解除</button>
+                    <% end %>
+                  <% else %>
+                    <%=link_to user_relationships_path(user), method: :post do %>
+                      <button type="button" class="btn btn btn-primary">フォロー</button>
+                    <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
+              </div>
           <% end %>
-    </div>
+        </ul>
+      </div>
   </div>
 </div>
+
+
+<%= render "shared/main_menu" %>
+
+<%= render "shared/footer" %>

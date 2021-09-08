@@ -1,0 +1,25 @@
+.followers-contents {
+  width: 100vw;
+  background-image: image-url("hotmain.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.followers-main {
+  padding: 2% 10%;
+  text-align: center;
+}
+
+.followers-title {
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12vh;
+  padding-bottom: 5vh;
+  text-align: center;
+}
+
+.followers-lineup {
+  width: 80vw;
+}

@@ -1,7 +1,6 @@
 <%= render "shared/header2" %>
 
 <div class="new-food-contents">
-
   <div class="new-food-main">
     <h2 class="new-food-title">YOUR KARAI</h2>
       <%= form_with model: @food, local: true do |f| %>
@@ -16,7 +15,7 @@
               <label class="new-click-upload">
                 <%= f.file_field :image, class:"new-food-image-text", type:"file" %>ファイルを選択
               </label>
-              </div>
+            </div>
               <%= image_tag @food.image, class: 'food-image' if @food.image.attached? %>
           </div>
           <%# /食べ物画像 %>
@@ -53,7 +52,7 @@
             <div class="new-food-name">
               <h2 class="new-img-contents-title">メニュー名</h2>
               <%# <span class="indispensable">必須</span> %>
-            <%= f.text_area :food_name, class:"new-food-name-text", id:"food-name", placeholder:"（100文字以内)", maxlength:"100" %>
+              <%= f.text_area :food_name, class:"new-food-name-text", id:"food-name", placeholder:"（100文字以内)", maxlength:"100" %>
             </div>
           </div>
           <%# /店名とメニュー名 %>

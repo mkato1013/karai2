@@ -4,29 +4,61 @@
   <div class="followers-main">
     <h2 class="followers-title">FOLLOWERS</h2>
       <div class="followers-lineup">
-        <ul class="followers-lists">
+        <div class="followers-lists">
           <% @users.each do |user| %>
             <div class="followers-list">
-              <div class="followers-nickname">
-              <%= link_to user_path(user) do %>
-                <%= user.nickname %>
-              <% end %>
-              </div>
-              <div class="followers-follow-btn">
-                <% if user != current_user %>
-                  <% if user.is_followed_by?(current_user) %>
-                    <%=link_to user_relationships_path(user), method: :delete do %>
-                      <button type="button" class="btn btn btn-danger">フォロー解除</button>
-                    <% end %>
-                  <% else %>
-                    <%=link_to user_relationships_path(user), method: :post do %>
-                      <button type="button" class="btn btn btn-primary">フォロー</button>
+              <div class="followers-users">
+                <div>
+                  <%= link_to user_path(user) do %>
+                    <% if user.icon.present? %>
+                      <%= image_tag user.icon, class: "icon-img" %>
+                    <% else %>
+                      <i class="fas fa-user-circle"></i>
                     <% end %>
                   <% end %>
-                <% end %>
+                </div>
+                <div>
+                  <%= link_to user_path(user),class: "show-food-post-user" do %>
+                    <%= user.nickname %>
+                  <% end %>
+                </div>
               </div>
+              <div class="mypage-follow-contents-<%= user.id %>">
+                <div class="followers-followcount-btn">
+                  <div>
+                    <%= link_to followings_user_path(user) do %>
+                      <button class="btn btn-mypage-follow">フォロー
+                        <i class="fas fa-angle-right fa-position-right">
+                          <%= user.followings.count %>
+                        </i>
+                      </button>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to followers_user_path(user) do %>
+                      <button class="btn btn-mypage-follow">フォロワー
+                        <i class="fas fa-angle-right fa-position-right">
+                          <%= user.followers.count %>
+                        </i>
+                      </button>
+                    <% end %>
+                  </div>
+                  <div>
+                    <% if user.is_followed_by?(current_user) %>
+                      <%= link_to user_relationships_path(user), method: :delete, remote: true do %>
+                        <button class="btn btn-follow-delete">フォロー中</button>
+                      <% end %>
+                    <% else %>
+                      <%= link_to user_relationships_path(user), method: :post, remote: true do %>
+                        <button class="btn btn-follow-create">フォローする</button>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
-        </ul>
+        </div>
       </div>
   </div>
 </div>

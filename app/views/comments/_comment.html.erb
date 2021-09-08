@@ -4,28 +4,30 @@
       <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: "food-comment-textbox" %>
       <%= f.submit "SEND" ,class: "food-comment-textbox-send" %>
     <% end %>
-  <% end %>
-  <ul class="show-food-comments">
-    <% @comments.each do |comment| %>
-      <li class="show-food-comment">
-        <div class="comment-food-post-users">
-        <div>
-        <%= link_to user_path(comment.user_id) do %>
-          <% if comment.user.icon.present? %>
-            <%= image_tag comment.user.icon, class: "icon-img" %>
-          <% else %>
-            <i class="fas fa-user-circle"></i>
+    <ul class="show-food-comments">
+      <% @comments.each do |comment| %>
+        <li class="show-food-comment">
+          <div class="comment-food-post-users">
+          <div>
+          <%= link_to user_path(comment.user_id) do %>
+            <% if comment.user.icon.present? %>
+              <%= image_tag comment.user.icon, class: "icon-img" %>
+            <% else %>
+              <i class="fas fa-user-circle"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        </div>
-        <div>
-        <%= link_to user_path(comment.user_id),class: "comment-food-post-user" do %>
-          <%= comment.user.nickname %>
-        <% end %>
-        <%= comment.text %>
-        </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+          </div>
+          <div>
+          <%= link_to user_path(comment.user_id),class: "comment-food-post-user" do %>
+            <%= comment.user.nickname %>
+          <% end %>
+          <%= comment.text %>
+          </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="please-login">コメント閲覧・投稿する際は<br/>「新規登録」「ログイン」をお願いします</p>
+  <% end %>
 </div>

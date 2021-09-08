@@ -8,8 +8,7 @@
 }
 
 .followers-main {
-  padding: 2% 10%;
-  text-align: center;
+  padding: 2% 20%;
 }
 
 .followers-title {
@@ -20,6 +19,20 @@
   text-align: center;
 }
 
-.followers-lineup {
-  width: 80vw;
+.followers-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.followers-users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.followers-followcount-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

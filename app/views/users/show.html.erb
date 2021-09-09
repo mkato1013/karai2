@@ -23,7 +23,9 @@
         </div>
         <div class="mypage-intro-bottomright">
           <h2 class="mypage-introduction">
-            <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+            <% if @user.introduction.present? %>
+              <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+            <% end %>
           </h2>
         </div>
       </div>

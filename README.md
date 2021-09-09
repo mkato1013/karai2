@@ -1,3 +1,28 @@
+# アプリケーション名
+「KARAI」
+
+![karai-toppege.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/d9d4028b-d7d6-00b4-0f07-3186bb054869.jpeg)
+
+
+## アプリケーション概要
+辛い食べ物を共有するアプリケーション
+
+
+
+## App URL
+https://karai-app.herokuapp.com/
+
+### ペルソナ
+・`辛いもの好き`で、辛い食べ物をなかなか探すことができない方
+・`サクッと`辛いものを`食べたい`社会人
+・辛いもの好きな主婦や主夫（`おうちのご飯`の共有）
+・自炊で辛い食べ物ができた時の`レシピメモ`をしたい方
+
+# 作者
+[Qiita](https://qiita.com/mkato1013)
+[Twitter](https://twitter.com/progmkatogorp)
+[Github](https://github.com/mkato1013)
+
 # テーブル設計
 
 ## users テーブル
@@ -8,26 +33,18 @@
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 | introduction       | text    |                           |
-| total_like         | string  | null: false               |
 
 ### Association
 
 - has_many :foods
 - has_many :likes
-<!-- 後で実装予定 -->
-<!-- source: :モデル名 関連するモデルを指定する -->
-<!-- 上：フォロワー 下：フォロー -->
-- has_many :follower_user, through: :followed, source: :follower
-- has_many :following_user, through: :follower, source: :followed
-
+- has_many :relationships, foreign_key: :following_id
+- has_many :followings, through: :relationships, source: :follower
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: :follower_id
+- has_many :followers, through: :reverse_of_relationships, source: :following
+- has_one_attached :icon
 
 ## foods テーブル
-<!-- もっと楽に投稿できるようにした方がめんどくさいと思われず、楽で良いと考えているため「null: false」は最小限に留めたい -->
-<!-- food_commentに味や金額を入れれるようにする？ -->
-<!-- meal_type_idは不要？みたらわかるし -->
-<!-- shop_moodは点数にする？というか必要？コメントに書けば良いのでは？ -->
-<!-- waiting_timeもidではなくても良いのでは？ -->
-<!-- 最悪店の名前だけ分かれば良いのでは？ -->
 
 | Column          | Type       | Options                      |
 | --------------- | ---------- | ---------------------------- |
@@ -46,31 +63,9 @@
 
 - belongs_to :user
 - has_many :likes
-- has_many :food_tags
-- has_many :tags, through: :food_tags
-
-## tags テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| tag_name        | string     |                              |
-
-### Association
-
-- has_many :food_tags
-- has_many :foods, through: :food_tags
-
-## food_tags テーブル
-
-| Column          | Type       | Options                      |
-| --------------- | ---------- | ---------------------------- |
-| food            | string     | null:false, foreign_key:true |
-| tag             | string     | null:false, foreign_key:true |
-
-### Association
-
-- belongs :food
-- belongs :tag
+- has_many :liked_users, through: :likes, source: :user, dependent: :destroy
+- has_one_attached :image
+- has_many :comments, dependent: :destroy
 
 ## likes テーブル
 
@@ -88,13 +83,13 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
+| following    | references | null: false, foreign_key: true |
 | follower     | references | null: false, foreign_key: true |
-| followed     | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :follower
-- belongs_to :followed
+- belongs_to :following ,class_name: "User"
+- belongs_to :follower, class_name: "User"
 
 ## comments テーブル
 

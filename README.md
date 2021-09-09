@@ -1,5 +1,4 @@
-# アプリケーション名
-「KARAI」
+# アプリケーション名  「KARAI」
 
 ![karai-toppege.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/d9d4028b-d7d6-00b4-0f07-3186bb054869.jpeg)
 
@@ -7,21 +6,22 @@
 ## アプリケーション概要
 辛い食べ物を共有するアプリケーション
 
+![f5e8f4d7317ac91c013356092c325097.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/884de986-8030-3f5d-eee2-a1ae6db8b4a8.gif)
 
 
 ## App URL
 https://karai-app.herokuapp.com/
 
 ### ペルソナ
-・`辛いもの好き`で、辛い食べ物をなかなか探すことができない方
-・`サクッと`辛いものを`食べたい`社会人
-・辛いもの好きな主婦や主夫（`おうちのご飯`の共有）
-・自炊で辛い食べ物ができた時の`レシピメモ`をしたい方
+- `辛いもの好き`で、辛い食べ物をなかなか探すことができない方
+- `サクッと`辛いものを`食べたい`社会人
+- 辛いもの好きな主婦や主夫（`おうちのご飯`の共有）
+- 自炊で辛い食べ物ができた時の`レシピメモ`をしたい方
 
 # 作者
-[Qiita](https://qiita.com/mkato1013)
-[Twitter](https://twitter.com/progmkatogorp)
-[Github](https://github.com/mkato1013)
+- [Qiita](https://qiita.com/mkato1013)
+- [Twitter](https://twitter.com/progmkatogorp)
+- [Github](https://github.com/mkato1013)
 
 # テーブル設計
 

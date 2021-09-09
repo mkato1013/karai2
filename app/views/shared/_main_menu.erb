@@ -102,15 +102,15 @@
     <div class="modalsearch-right">
       <div class="modalsearch-contents">
         <%= search_form_for @q, url: search_foods_path, class: "food-search", id:"pull-down" do |f| %>
-          <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '店名・メニュー名・駅名' %><br/>
-          <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "TYPE A KEYWORD" %><br/>
-          <%= f.label :user_nickname_cont, 'ユーザー名' %><br/>
-          <%= f.text_field :user_nickname_cont, placeholder: "TYPE A KEYWORD" %><br/>
-          <%= f.label :meal_type_id_eq, '種類' %><br/>
-          <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, include_blank: '--', disabled: 0 %><br/>
-          <%= f.label :spicy_level_id_eq, '辛さ' %><br/>
-          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, include_blank: '--' %><br/>
-          <%= f.submit "SEARCH" %><br/>
+          <%= f.label :shop_name_or_shop_name_kana_or_food_name_or_station_cont, '店名・メニュー名・駅名', class: "search-label" %><br/>
+          <%= f.text_field :shop_name_or_shop_name_kana_or_food_name_or_station_cont, placeholder: "KEYWORD", class: "search-text" %><br/>
+          <%= f.label :user_nickname_cont, 'ユーザー名', class: "search-label" %><br/>
+          <%= f.text_field :user_nickname_cont, placeholder: "KEYWORD", class: "search-text" %><br/>
+          <%= f.label :meal_type_id_eq, '種類', class: "search-label" %><br/>
+          <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, {include_blank: '--', disabled: 0}, class: "search-text" %><br/>
+          <%= f.label :spicy_level_id_eq, '辛さ', class: "search-label" %><br/>
+          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, {include_blank: '--'}, class: "search-text" %><br/>
+          <%= f.submit "SEARCH", class: "search-submit" %><br/>
         <% end %>
       </div>
     </div>

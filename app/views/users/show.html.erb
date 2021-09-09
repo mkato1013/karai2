@@ -1,14 +1,10 @@
 <%= render "shared/header2" %>
-
 <div class="mypage-contents">
   <h2 class="mypage-title">MY PAGE</h2>
-
   <div class="mypage-main">
 
-<%# プロフィール %>
+<%# プロフィール欄 %>
     <div class="mypage-intro">
-
-<%# 左プロフィール欄 %>
       <div class="mypage-intro-left">
         <% if @user.icon.present? %>
           <%= image_tag @user.icon, class: "mypage-image" %>
@@ -19,73 +15,99 @@
           <%= @user.nickname %>
         </h2>
       </div>
-<%# /左プロフィール欄 %>
-
-<%# 右プロフィール欄 %>
       <div class="mypage-intro-right">
         <div class="mypage-intro-topright">
-
           <div class="mypage-follow-contents-<%= @user.id %>">
             <%= render partial:"relationships/relationship", lacals: {user: @user} %>
           </div>
-
-          <div class="mypage-introduction-edit">
-            <% if user_signed_in? && @user == current_user %>
-              <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-            <% end %>
-          </div>
         </div>
-        
         <div class="mypage-intro-bottomright">
           <h2 class="mypage-introduction">
-            <%= @user.introduction %>
+            <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
           </h2>
         </div>
       </div>
-<%# /右プロフィール欄 %>
     </div>
 <%# /プロフィール欄 %>
 
   <h2 class="contents-title">MY KARAI</h2>
     <div class="contents-row">
       <% @foods.each do |food| %>
-        <li class="list">
+        <li class="myfood-list">
           <div class="food-img-content">
-            <%= image_tag food.image, class: "food-img" if food.image.attached? %>
-
+            <%= link_to food_path(food) do %>
+              <%= image_tag food.image, class: "user-show-food-img" if food.image.attached? %>
+            <% end %>
+            <div class="usershow-food-img-info">
+              <h1>店名</h1>
+                <h2 class="usershow-shop-name">
+                  <%= food.shop_name %>
+                </h2>
+              <h1>メニュー名</h1>
+                <h2 class="usershow-food-name">
+                  <%= food.food_name %>
+                </h2>
+              <h1>辛さ採点</h1>
+                <h2 class="usershow-spicy-level-category">
+                  <%= food.spicy_level.name %>
+                </h2>
+            </div>
             <div class="food-img-content-more">
-              <ul class="more_list">
-                <li>
-                  <%= link_to '詳細', food_path(food.id), method: :get %>
+              <ul class="more-lists">
+                <li class="more-list-menu">
+                  <%= link_to food_path(food.id), method: :get do %>
+                    <i class="fas fa-info-circle"></i>
+                  <% end %>
                 </li>
                 <% if user_signed_in? && current_user.id == food.user_id %>
-                  <li>
-                    <%= link_to '編集', edit_food_path(food.id), method: :get %>
+                  <li class="more-list-menu">
+                    <%= link_to edit_food_path(food.id), method: :get do %>
+                      <i class="fas fa-edit"></i>
+                    <% end %>
                   </li>
-                  <li>
-                    <%= link_to '削除', food_path(food.id), method: :delete %>
+                  <li class="more-list-menu">
+                    <%= link_to food_path(food.id), method: :delete do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
                   </li>
                 <% end %>
               </ul>
-            </div>
-
-            <div class="food-img-info2">
-              <h2 class="shop-name2">
-              <%= food.shop_name%>
-              </h2>
-              <h2 class="food-name2">
-              <%= food.food_name%>
-              </h2>
-              <h3 class="spicy-level-category2">
-              <%= food.spicy_level.name%>
-              </h3>
             </div>
           </div>
         </li>
       <% end %>
     </div>
+  </div>
 </div>
 
 <%= render "shared/main_menu" %>
-
 <%= render "shared/footer" %>
+
+<%# モーダルウィンドウ %>
+<%# <div class="modaldelete">
+  <i class="far fa-times-circle modaldelete-close"></i>
+  <div class="modaldelete-contents">
+    <div class="modaldelete-top">
+      <h2 class="modaldelete-title">削除しますか？</h2>
+    </div>
+    <div class="modaldelete-bottom">
+      <%= link_to food_path(@food.id), method: :delete do %>
+        <%# <h2 class="modaldelete-yes">YES</h2>
+      <% end %>
+      <%# <h2 class="modaldelete-no">NO</h2>
+    </div>
+  </div>
+</div>
+<div class="maskdelete"></div> %>
+
+<%# <script>
+  $(function() {
+    $('.fa-trash-alt').on('click',function(){
+      $('.modaldelete,.maskdelete').fadeIn();
+    });
+    $('.modaldelete-close,.modaldelete-no,.maskdelete').on('click',function(){
+      $('.modaldelete,.maskdelete').fadeOut();
+    });
+  });
+</script> %>
+<%# /モーダルウィンドウ %>

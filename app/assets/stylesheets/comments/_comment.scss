@@ -1,0 +1,42 @@
+.comments-comment-contents {
+  width: 30vw;
+}
+
+.food-comment-textbox {
+  width: 30vw;
+  height: 10vh;
+  background-color: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
+}
+
+.food-comment-textbox-send {
+  width: 30vw;
+  height: 5vh;
+  text-align: center;
+  color: black;
+  border: black solid 0.1px;
+  border-radius: 10%;
+  background: #fffd7fb9;
+  cursor: pointer;
+}
+
+.show-food-comments {
+  display: block;
+}
+
+.comment-food-post-users {
+  display: flex;
+  align-items: center;
+}
+
+.comment-food-post-user {
+  text-decoration: none;
+}
+
+.please-login {
+  color: black;
+  padding: 1vw;
+  font-size: 1vw;
+  font-family: "M PLUS Rounded 1c";
+  text-align: center;
+}

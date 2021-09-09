@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search, :show]
 
   def index
     to = Time.current
@@ -28,10 +29,6 @@ class FoodsController < ApplicationController
   end
 
   def search
-    # @food = Food.find(food_params)
-    # 上つけたし
-    # @user = User.find(params[:id])
-    # 上つけたし
     @q = Food.ransack(params[:q]) || User.ransack(params[:q])
     @foods = @q.result.order("created_at DESC").limit(25)
   end
@@ -55,7 +52,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @like = Like.new
     @comment = Comment.new
-    @comments = @food.comments
+    @comments = @food.comments.order("created_at DESC")
   end
 
   def destroy
@@ -67,7 +64,8 @@ class FoodsController < ApplicationController
 
   private
 
-  # def food_params
-  #   params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: user_id)
-  # end
+  def food_params
+    params.require(:food).permit(:image, :meal_type_id, :shop_name, :shop_name_kana, :food_name, :spicy_level_id, :station, :shop_mood_id, :waiting_time_id, :food_comment).merge(user_id: current_user.id)
+  end
+
 end

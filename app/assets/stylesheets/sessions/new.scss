@@ -3,7 +3,6 @@
   height: 100vh;
   background-image: image-url("hot.png");
   background-size: cover;
-
 }
 
 .login-title {
@@ -11,12 +10,13 @@
   font-family: 'Permanent Marker', cursive;  font-size: 20vh;
   text-align: center;
   padding-top: 10vh;
+  font-size: 10vw;
 }
 
 .login-subtitle {
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 12vh;
+  font-size: 7vw;
   text-align: start;
   transform: rotate(-7deg);
   padding-left: 15vw;
@@ -24,6 +24,33 @@
 }
 
 .login-form {
-  padding-top: 10vh;
   padding-left: 60vw;
+}
+
+.field,
+.actions {
+  width: 20vw;
+  color: #000000;
+  padding: 0.5em;
+  font-size: 1.2vw;
+  background-color: #ffffff6b;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.sessions-label {
+  padding: 0.5em;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1vw;
+  width: 10vw;
+  height: 2vh;
+}
+
+.login-btn {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1vw;
+  width: 15vw;
+  height: 4vh;
+}
+
+.signup-password {
 }

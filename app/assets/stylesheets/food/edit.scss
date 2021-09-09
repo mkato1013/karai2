@@ -1,4 +1,4 @@
-.new-food-contents {
+.edit-food-contents {
   width: 100vw;
   background-image: image-url("hotmain.png");
   background-size: cover;
@@ -7,11 +7,11 @@
   background-blend-mode: lighten;
 }
 
-.new-food-main {
+.edit-food-main {
   padding: 2% 10%;
 }
 
-.new-food-title {
+.edit-food-title {
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
   font-size: 15vh;
@@ -19,20 +19,20 @@
   text-align: center;
 }
 
-.new-food-post {
+.edit-food-post {
   padding: 2% 20% 10% 20%;
 }
 
-.new-food-img,
-.new-meal-type-category,
-.new-shop-name,
-.new-shop-name-kana,
-.new-food-name,
-.new-spicy-level-category,
-.new-shop-nearest-station,
-.new-shop-mood-category,
-.new-waiting-time-category,
-.new-food-comment {
+.edit-food-img,
+.edit-meal-type-category,
+.edit-shop-name,
+.edit-shop-name-kana,
+.edit-food-name,
+.edit-spicy-level-category,
+.edit-shop-nearest-station,
+.edit-shop-mood-category,
+.edit-waiting-time-category,
+.edit-food-comment {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,17 +47,17 @@
   border-left: solid 10px #ff6e6e;
 }
 
-.new-click-upload,
-.new-meal-type-category-text,
-.new-shop-name-text,
-.new-shop-name-kana-text,
-.new-shop-name-kana-text,
-.new-food-name-text,
-.new-spicy-level-category-text,
-.new-shop-station-text,
-.new-shop-mood-category-text,
-.new-waiting-time-category-text,
-.new-food-comment-text {
+.edit-click-upload,
+.edit-meal-type-category-text,
+.edit-shop-name-text,
+.edit-shop-name-kana-text,
+.edit-shop-name-kana-text,
+.edit-food-name-text,
+.edit-spicy-level-category-text,
+.edit-shop-station-text,
+.edit-shop-mood-category-text,
+.edit-waiting-time-category-text,
+.edit-food-comment-text {
   width: 25vw;
   color: #000000;
   border: solid 3px #000000;
@@ -67,15 +67,17 @@
   background-color: #ff000033;
 }
 
-.new-img-contents-title {
+.edit-img-contents-title {
   font-size: 2.2vw;
+  text-align: center;
+  font-family: "M PLUS Rounded 1c";
 }
 
-.new-food-image-text {
+.edit-food-image-text {
   display: none;
 }
 
-.new-postfood-btn {
+.edit-postfood-btn {
   width: 10vw;
   height: 20vh;
   position: fixed;

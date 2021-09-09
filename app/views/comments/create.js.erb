@@ -1,1 +1,1 @@
-$(".food-comments-contents-<%= @food.id %>").html("<%= j(render partial: 'comments/comment', lacals: {food: @food}) %>")
+$(".food-comments-contents-<%= @food.id %>").html("<%= j(render partial: 'comments/comment', locals: {food: @food}) %>")

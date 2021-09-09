@@ -80,18 +80,45 @@ ul {
 }
 
 .modalsearch-title {
-  height: 10vh;
+  height: 20vh;
+  width: auto;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 15vh;
+  font-size: 7vw;
   text-align: center;
 }
 
 .modalsearch-close {
   cursor: pointer;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 
+.search-label {
+  font-family: "M PLUS Rounded 1c";
+  font-size: 1.2vw;
+}
+
+.search-text {
+  width: 25vw;
+  height: 5vh;
+  color: #000000;
+  border: solid 3px #000000;
+  margin: 0.5em;
+  font-size: 1.2vw;
+  background-color: #ffffff33;
+}
+
+.search-submit {
+  width: 15vw;
+  height: 7vh;
+  color: #000000;
+  border: solid 3px #000000;
+  border-radius: 20%;
+  margin: 0.5em;
+  font-size: 1.2vw;
+  background-color: #ff00004f;
+  font-family: 'Permanent Marker', cursive;
+}
 .masksearch {
   position: fixed;
   top: 0;

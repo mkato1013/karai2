@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+
   def create
     @food = Food.find(params[:food_id])
     @comment = Comment.create(comment_params)
-    @comments = @food.comments
+    @comments = @food.comments.order("created_at DESC")
   end
 
   private

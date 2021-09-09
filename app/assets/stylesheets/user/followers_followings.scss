@@ -1,0 +1,38 @@
+.followers-contents {
+  width: 100vw;
+  background-image: image-url("hotmain.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.followers-main {
+  padding: 2% 20%;
+}
+
+.followers-title {
+  color: rgb(0, 0, 0);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 12vh;
+  padding-bottom: 5vh;
+  text-align: center;
+}
+
+.followers-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.followers-users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.followers-followcount-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

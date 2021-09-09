@@ -2,54 +2,107 @@
 
 <div class="main">
   <div class="food-contents">
-    <h2 class="food-contents-title">IT'S KARAI!</h2>
-      <ul class="food-lists">
-        <li class="list">
-          <div class="food-img-content">
-            <%= image_tag @food.image, class: "food-img" if @food.image.attached? %>
-
-              <div class="food-likes-<%= @food.id %>">
-                <%= render partial:"likes/like", locals: {food: @food} %>
-              </div>
-            
-            <div class="food-img-info">
-
-              <h2 class="food-mealtype">
-                <%= @food.meal_type.name %>
-              </h2>
-              <h2 class="foodshop-name">
-                <%= @food.shop_name %>
-              </h2>
-              <h2 class="foodname">
-                <%= @food.food_name %>
-              </h2>
-              <h2 class="food-spicylevel">
-                <%= @food.spicy_level.name %>
-              </h2>
-              <h2 class="foodshop-station">
-                <%= @food.station %>
-              </h2>
-              <h2 class="foodshop-mood">
-              <%= @food.shop_mood.name %>
-              </h2>
-              <h2 class="shop-waitingtime">
-              <%= @food.waiting_time.name %>
-              </h2>
-              <h2 class="foodshop-comment">
-              <%= @food.food_comment %>
-              </h2>
-              
+    <h2 class="show-food-contents-title">IT'S KARAI!</h2>
+      <div class="show-food-img-content">
+        <div class="food-img-content-left">
+          <div class="ranks-food-post">
+            <div>
+              <%= link_to user_path(@food.user_id) do %>
+                <% if @food.user.icon.present? %>
+                  <%= image_tag @food.user.icon, class: "icon-img" %>
+                <% else %>
+                  <i class="fas fa-user-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to user_path(@food.user_id),class: "show-food-post-user" do %>
+                <%= @food.user.nickname %>
+              <% end %>
             </div>
           </div>
-        </li>
-      </ul>
-  </div>
-<%# コメント欄 %>
-  <div class="food-comments-contents-<%= @food.id %>">
-    <%= render partial:"comments/comment", lacals: {food: @food} %>
-  </div>
-<%# /コメント欄 %>
+          <%= image_tag @food.image, class: "show-food-img" if @food.image.attached? %>
+          <div class="food-likes-<%= @food.id %>">
+            <%= render partial:"likes/like", locals: {food: @food} %>
+          </div>
+          <%# コメント欄 %>
+          <h2 class="show-food-comments-title">Comments !</h2>
+            <div class="food-comments-contents-<%= @food.id %>">
+                <%= render partial:"comments/comment", locals: {food: @food} %>
+            </div>
+          <%# /コメント欄 %>
 
+        </div>
+        <div class="food-img-content-right">
+          <div class="food-img-info">
+            <h1>タイプ</h1>
+              <h2 class="show-food-mealtype">
+                <% if @food.meal_type.name.present? %>
+                  <%= @food.meal_type.name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>店名</h1>
+              <h2 class="show-foodshop-name">
+                <% if @food.shop_name.present? %>
+                  <%= @food.shop_name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>メニュー名</h1>
+              <h2 class="show-foodname">
+                <% if @food.food_name.present? %>
+                  <%= @food.food_name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>辛さ採点</h1>
+              <h2 class="show-food-spicylevel">
+                <% if @food.spicy_level.name.present? %>
+                  <%= @food.spicy_level.name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>最寄り駅<h1>
+              <h2 class="show-foodshop-station">
+                <% if @food.station.present? %>
+                  <%= @food.station %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>雰囲気</h1>
+              <h2 class="show-foodshop-mood">
+                <% if @food.shop_mood.name.present? %>
+                  <%= @food.shop_mood.name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>待ち時間</h1>
+              <h2 class="show-shop-waitingtime">
+                <% if @food.waiting_time.name.present? %>
+                  <%= @food.waiting_time.name %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+            <h1>コメント</h1>
+              <h2 class="show-foodshop-comment">
+                <% if @food.food_comment.present? %>
+                  <%= @food.food_comment %>
+                <% else %>
+                  <%= "--" %>
+                <% end %>
+              </h2>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
 
 <%= render "shared/main_menu" %>

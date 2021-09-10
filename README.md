@@ -6,8 +6,6 @@
 ## アプリケーション概要
 辛い食べ物を共有するアプリケーション
 
-![f5e8f4d7317ac91c013356092c325097.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/884de986-8030-3f5d-eee2-a1ae6db8b4a8.gif)
-
 ![f5e8f4d7317ac91c013356092c325097.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/c6a739a0-ff5f-5c43-e28c-940c0736ee02.gif)
 
 ## App URL

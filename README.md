@@ -25,6 +25,7 @@ https://karai-app.herokuapp.com/
 
 ## users テーブル
 ユーザーを登録した際には、以下の`ユーザー設定・編集`ができます。
+- メールアドレス
 - 一言コメント
 - アイコン
 
@@ -125,4 +126,4 @@ https://karai-app.herokuapp.com/
 - belongs_to :user
 - belongs_to :food
 
-![karai-comment](https://user-images.githubusercontent.com/87405282/132786217-a7d774f3-94bd-4d36-8f17-1f1c9a16f391.gif)
+![karai-comment](https://user-images.githubusercontent.com/87405282/132867741-879dc084-140f-4483-bd58-c514f95f0c24.gif)

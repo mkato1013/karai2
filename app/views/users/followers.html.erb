@@ -44,13 +44,15 @@
                     <% end %>
                   </div>
                   <div>
-                    <% if user.is_followed_by?(current_user) %>
-                      <%= link_to user_relationships_path(user), method: :delete, remote: true do %>
-                        <button class="btn btn-follow-delete">フォロー中</button>
-                      <% end %>
-                    <% else %>
-                      <%= link_to user_relationships_path(user), method: :post, remote: true do %>
-                        <button class="btn btn-follow-create">フォローする</button>
+                    <% unless user == current_user %>
+                      <% if user.is_followed_by?(current_user) %>
+                        <%= link_to user_relationships_path(user), method: :delete, remote: true do %>
+                          <button class="btn btn-follow-delete">フォロー中</button>
+                        <% end %>
+                      <% else %>
+                        <%= link_to user_relationships_path(user), method: :post, remote: true do %>
+                          <button class="btn btn-follow-create">フォローする</button>
+                        <% end %>
                       <% end %>
                     <% end %>
                   </div>

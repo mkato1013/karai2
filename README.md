@@ -6,8 +6,7 @@
 ## アプリケーション概要
 辛い食べ物を共有するアプリケーション
 
-![](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/e93fa489-796d-c15f-ee46-50e2b0450804.gif)
-
+![karaimovie](https://user-images.githubusercontent.com/87405282/132784762-16f52189-1448-44b5-a8d6-00ea7e30a404.gif)
 
 ## App URL
 https://karai-app.herokuapp.com/

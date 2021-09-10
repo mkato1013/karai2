@@ -6,7 +6,7 @@
 ## アプリケーション概要
 辛い食べ物を共有するアプリケーション
 
-![karaimovie.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/e93fa489-796d-c15f-ee46-50e2b0450804.gif)
+![](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/e93fa489-796d-c15f-ee46-50e2b0450804.gif)
 
 
 ## App URL

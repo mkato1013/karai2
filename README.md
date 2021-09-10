@@ -1,7 +1,6 @@
 # アプリケーション名  「KARAI」
 
-![karai-toppege.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/d9d4028b-d7d6-00b4-0f07-3186bb054869.jpeg)
-
+![karai-toppege](https://user-images.githubusercontent.com/87405282/132785018-9b29e819-963b-4e5f-9d72-b3c125d46a9f.jpeg)
 
 ## アプリケーション概要
 辛い食べ物を共有するアプリケーション
@@ -25,6 +24,9 @@ https://karai-app.herokuapp.com/
 # テーブル設計
 
 ## users テーブル
+ユーザーを登録した際には、以下の`ユーザー設定・編集`ができます。
+- 一言コメント
+- アイコン
 
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
@@ -43,7 +45,18 @@ https://karai-app.herokuapp.com/
 - has_many :followers, through: :reverse_of_relationships, source: :following
 - has_one_attached :icon
 
+![karai-user](https://user-images.githubusercontent.com/87405282/132786925-4b617635-f0d8-4ea3-98b6-406b5604664b.gif)
+
 ## foods テーブル
+辛い食べ物を投稿する際の`項目`（必須・任意）は以下の通りです。
+- カテゴリー（ラーメン、カレー、韓国料理、おうちごはん、など）
+- 店名
+- 店名（読み方）
+- メニュー名
+- 辛さ採点
+- 最寄り駅
+- 待ち時間
+- 投稿する食べ物に関するコメント
 
 | Column          | Type       | Options                      |
 | --------------- | ---------- | ---------------------------- |
@@ -66,7 +79,10 @@ https://karai-app.herokuapp.com/
 - has_one_attached :image
 - has_many :comments, dependent: :destroy
 
+![karai-food](https://user-images.githubusercontent.com/87405282/132786626-b98443a2-5b2f-45c6-8cfd-625dc663251a.gif)
+
 ## likes テーブル
+ログインしたユーザーは、投稿に対して`いいね（KALIKE）`できます。
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -78,7 +94,10 @@ https://karai-app.herokuapp.com/
 - belongs_to :user
 - belongs_to :food
 
+![karai-like](https://user-images.githubusercontent.com/87405282/132785508-2195b5a9-2e64-4c2a-871b-f51f80b3536e.gif)
+
 ## relationships テーブル
+ログインしたユーザーは、辛い食べ物をより見つけやすいよう、`フォロー`できる機能を実装しています。
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -90,7 +109,10 @@ https://karai-app.herokuapp.com/
 - belongs_to :following ,class_name: "User"
 - belongs_to :follower, class_name: "User"
 
+![karai-follow](https://user-images.githubusercontent.com/87405282/132785762-b52e7e54-82e6-45c4-965c-ebf4f8cc1ebb.gif)
+
 ## comments テーブル
+ログインしたユーザーは、投稿した食べ物の`コメントを投稿・閲覧`することができます。
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -102,3 +124,5 @@ https://karai-app.herokuapp.com/
 
 - belongs_to :user
 - belongs_to :food
+
+![karai-comment](https://user-images.githubusercontent.com/87405282/132786217-a7d774f3-94bd-4d36-8f17-1f1c9a16f391.gif)

@@ -8,12 +8,13 @@
 
 ![f5e8f4d7317ac91c013356092c325097.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/884de986-8030-3f5d-eee2-a1ae6db8b4a8.gif)
 
+![f5e8f4d7317ac91c013356092c325097.gif](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1768158/c6a739a0-ff5f-5c43-e28c-940c0736ee02.gif)
 
 ## App URL
 https://karai-app.herokuapp.com/
 
 ### ペルソナ
-- `辛いもの好き`で、辛い食べ物をなかなか探すことができない方
+- `辛いもの好き`で、なかなか辛い食べ物を探すことができない方
 - `サクッと`辛いものを`食べたい`社会人
 - 辛いもの好きな主婦や主夫（`おうちのご飯`の共有）
 - 自炊で辛い食べ物ができた時の`レシピメモ`をしたい方

@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :food do
     shop_name             {Faker::Name.name}
     food_name             {Faker::Name.name}
-    spicy_level_id        {0}
+    spicy_level_id        {5}
     association :user
 
     after(:build) do |food|

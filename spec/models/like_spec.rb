@@ -9,7 +9,7 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'いいね機能' do
-    context 'いいねできる場合', js: true do
+    context 'いいねできる場合' do
       it "user_idとfood_idがあれば保存できる" do
         expect(@like).to be_valid
       end
@@ -25,14 +25,14 @@ RSpec.describe Like, type: :model do
       end
     end
 
-    context 'いいねできない場合',js: true do
+    context 'いいねできない場合' do
       it "user_idが空ではいいねできない" do
         @like.user_id = nil
         @like.valid?
         expect(@like.errors.full_messages).to include "User must exist"
       end
 
-      it "food_idが空ではいいねできない",js: true do
+      it "food_idが空ではいいねできない" do
         @like.food_id = nil
         @like.valid?
         expect(@like.errors.full_messages).to include "Food must exist"

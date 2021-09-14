@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before do
-    @like = FactoryBot.build(:like)
+    user = FactoryBot.create(:user)
+    food = FactoryBot.create(:food)
+    @like = FactoryBot.build(:like, user_id: user.id, food_id: food.id)
+    sleep 0.2
   end
 
   describe 'いいね機能' do
@@ -11,36 +14,25 @@ RSpec.describe Like, type: :model do
         expect(@like).to be_valid
       end
 
-      it "food_idが同じでもuser_idが違うといいねできる" do
-        expect(FactoryBot.create(:like, user_id: @like.user_id)).to be_valid
+      it "food_idが同じでもuser_idが違えばいいねできる" do
+        another_like = FactoryBot.create(:like)
+        expect(FactoryBot.create(:like, user_id: another_like.user_id)).to be_valid
       end
 
-      it "user_idが同じでもfood_idが違うといいねできる" do
-        expect(FactoryBot.create(:like, food_id: @like.food_id)).to be_valid
+      it "user_idが同じでもfood_idが違えばいいねできる" do
+        another_like = FactoryBot.create(:like)
+        expect(FactoryBot.create(:like, food_id: another_like.food_id)).to be_valid
       end
-
     end
 
     context 'いいねできない場合',js: true do
       it "user_idが空ではいいねできない" do
         @like.user_id = nil
         @like.valid?
-        expect(@like.errors[:user_id]).to include 
-      end
-
-      it "food_idが空ではいいねできない" do
-        @like.food_id = nil
-        @like.valid?
-        expect(@like.errors[:food_id]).to include 
-      end
-
-      it 'ログインしているユーザーでなければいいねできない' do
-        @like.user_id = nil
-        @like.valid?
         expect(@like.errors.full_messages).to include "User must exist"
       end
 
-      it '投稿した食べ物がなければいいねできない' do
+      it "food_idが空ではいいねできない",js: true do
         @like.food_id = nil
         @like.valid?
         expect(@like.errors.full_messages).to include "Food must exist"

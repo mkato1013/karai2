@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
   before do
+    @user = FactoryBot.create(:user)
+    @another_user = FactoryBot.create(:user)
     @relationship = FactoryBot.create(:relationship)
+    @another_relationship = FactoryBot.build(:relationship)
   end
 
   describe 'フォロー機能' do
@@ -12,23 +15,27 @@ RSpec.describe Relationship, type: :model do
       end
 
       it "following_idが同じでもfollower_idが違えばいいねできる" do
+        relationship2 = FactoryBot.build(:relationship, follower_id: @another_relationship.follower_id, following_id: @relationship.following_id)
+        expect(relationship2).to be_valid
       end
 
       it "follower_idが同じでもfollowing_idが違えばいいねできる" do
+        relationship2 = FactoryBot.build(:relationship, follower_id: @relationship.follower_id, following_id: @another_relationship.following_id)
+        expect(relationship2).to be_valid
       end
     end
 
     context 'フォロー関係を保存できない場合' do
       it "following_idが空では保存できない" do
+        @relationship.following_id = nil
+        @relationship.valid?
+        expect(@relationship.errors.full_messages).to include "Following must exist"
       end
 
       it "follower_idが空では保存できない" do
-      end
-
-      it "following_idとfollower_idが同じ場合では保存できない" do
-      end
-
-      it "following_idとfollower_idは一意でなければ保存できない" do
+        @relationship.follower_id = nil
+        @relationship.valid?
+        expect(@relationship.errors.full_messages).to include "Follower must exist"
       end
 
     end

@@ -109,7 +109,7 @@
           <%= f.label :meal_type_id_eq, '種類', class: "search-label" %><br/>
           <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, {include_blank: '--', disabled: 0}, class: "search-text" %><br/>
           <%= f.label :spicy_level_id_eq, '辛さ', class: "search-label" %><br/>
-          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, {include_blank: '--'}, class: "search-text" %><br/>
+          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, {include_blank: '--', disabled: 0}, class: "search-text" %><br/>
           <%= f.submit "SEARCH", class: "search-submit" %><br/>
         <% end %>
       </div>

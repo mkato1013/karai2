@@ -127,8 +127,8 @@
   background-repeat: repeat;
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
-  width: 80vw;
-  height: 70vh;
+  width: 35vw;
+  height: 40vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -137,7 +137,7 @@
   display: none;
 }
 
-.modaldelete-contents {
+.modaldelete-top {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -148,8 +148,20 @@
   width: auto;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 7vw;
+  font-size: 3vw;
   text-align: center;
+}
+
+.modaldelete-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modaldelete-yes,
+.modaldelete-no {
+  font-size: 3vw;
+  cursor: pointer;
 }
 
 .modaldelete-close {
@@ -163,7 +175,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.219);
   z-index: 1;
   display: none;
 }

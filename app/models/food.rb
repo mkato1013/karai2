@@ -23,6 +23,8 @@ class Food < ApplicationRecord
     validates :image
     validates :shop_name
     validates :food_name
-    validates :spicy_level_id
+    with_options numericality: { other_than: 0 , message: "can't be blank"} do
+      validates :spicy_level_id
+    end
   end
 end

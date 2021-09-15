@@ -37,6 +37,12 @@ RSpec.describe Food, type: :model do
         expect(@food.errors.full_messages).to include "Spicy level can't be blank"
       end
 
+      it '辛さレベルが[id:0]では登録できない' do
+        @food.spicy_level_id = 0
+        @food.valid?
+        expect(@food.errors.full_messages).to include "Spicy level can't be blank"
+      end
+
       it 'ログインしているユーザーでなければ投稿できない' do
         @food.user = nil
         @food.valid?

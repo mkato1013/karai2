@@ -68,7 +68,10 @@
                     <% end %>
                   </li>
                   <li class="more-list-menu">
-                    <%= link_to food_path(food.id), method: :delete do %>
+                    <%= link_to food_path(food.id), method: :delete, data:
+                      { confirm: '本当に削除しますか?削除すると投稿の復元はできません',
+                        cancel: 'やめる',
+                        commit: '削除する'}, title: '削除確認' do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                   </li>

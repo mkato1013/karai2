@@ -54,7 +54,10 @@
 
   <div class="menu-details">
     <% if user_signed_in? %>
-      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out") do %>
+      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out", data:
+       {confirm: 'ログアウトしますか?',
+        cancel: 'やめる',
+        commit: 'ログアウトする'}, title: 'ログアウトの確認') do %>
         <div class="menu-details-logout">
           <i class="fas fa-door-open"></i>
           <h2 class="menu-content">LOG OUT</h2>

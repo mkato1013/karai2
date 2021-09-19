@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
   before do
-    @user = FactoryBot.create(:user)
-    @another_user = FactoryBot.create(:user)
-    @relationship = FactoryBot.create(:relationship)
-    @another_relationship = FactoryBot.build(:relationship)
+    @user = create(:user)
+    @another_user = create(:user)
+    @relationship = create(:relationship)
+    @another_relationship = build(:relationship)
   end
 
   describe 'フォロー機能' do

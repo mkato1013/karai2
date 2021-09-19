@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
     text             {'aaaa'}
-    association :user
-    association :food
+    user
+    food
   end
 end

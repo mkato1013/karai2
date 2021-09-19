@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before do
-    user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food)
-    @comment = FactoryBot.build(:comment, user_id: user.id, food_id: food.id)
+    user = create(:user)
+    food = create(:food)
+    @comment = build(:comment, user_id: user.id, food_id: food.id)
     sleep 0.2
   end
 

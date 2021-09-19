@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before do
-    user = FactoryBot.create(:user)
-    food = FactoryBot.create(:food)
-    @like = FactoryBot.build(:like, user_id: user.id, food_id: food.id)
+    user = create(:user)
+    food = create(:food)
+    @like = build(:like, user_id: user.id, food_id: food.id)
     sleep 0.2
   end
 

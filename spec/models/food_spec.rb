@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   before do
-    @food = FactoryBot.build(:food)
+    @food = build(:food)
   end
 
   describe '辛い食べ物投稿機能' do

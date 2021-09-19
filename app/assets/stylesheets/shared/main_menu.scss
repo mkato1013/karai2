@@ -25,7 +25,6 @@
   box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   border: solid rgb(255, 255, 255) 0.5vh;
   position: relative;
-  // border-radius: 100px;
   cursor: pointer;
 }
 
@@ -131,3 +130,46 @@ ul {
   display: none;
 }
 // /モーダルウィンドウ
+
+// タブレット表示の場合
+@media (max-width: 1000px) {
+
+}
+
+// スマホ表示の場合
+@media (max-width: 500px) {
+  .fa-home,
+  .fa-bars,
+  .fa-search,
+  .fa-hotjar,
+  .fa-portrait,
+  .fa-ice-cream,
+  .fa-door-open,
+  .fa-address-card {
+    font-size: 4vh;
+    padding-top: 1vh;
+    color: black;
+  }
+  .menu-content {
+    font-size: 1vw;
+    display: block;
+    margin: 3vh 0vh 1vh 0vh;
+    cursor: pointer;
+    color: black;
+  }
+  .menu-details {
+    background-image: image-url("greenhot.png");
+    background-blend-mode: lighten;
+    background-position: center;
+    background-size: 100%;
+    width: 50vw;
+    height: 15vh;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    border: solid rgb(255, 255, 255) 0.5vh;
+    position: relative;
+    cursor: pointer;
+  }
+  
+}

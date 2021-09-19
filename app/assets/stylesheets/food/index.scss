@@ -30,14 +30,16 @@
   width: 100vw;
 }
 
-.ranks-title,.food-contents-title {
+.ranks-title,
+.food-contents-title {
   width: 100vw;
   height: 10vh;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 10vh;
+  font-size: 7vw;
   padding-top: 3vh;
   text-align: center;
+  margin-bottom: 3vh;
 }
 
 .food-lists {
@@ -92,4 +94,19 @@
   background: #ffc29050;
   border: 3px solid #ff7c7c;
   border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+}
+
+// スマホ対応
+@media (max-width: 500px) {
+  .ranks-img {
+    margin: 0vh 10vh;
+  }
+  .ranks-img-content {
+    padding: 5vh;
+    border: 10px solid #ff5511;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 5px 0px;
+    background-color: rgba(255, 255, 255, 0.692);
+  }
+
 }

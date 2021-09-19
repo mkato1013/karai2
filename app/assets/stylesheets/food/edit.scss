@@ -77,9 +77,14 @@
   display: none;
 }
 
+.food-image {
+  width: 30vw;
+  height: 30vw;
+}
+
 .edit-postfood-btn {
   width: 10vw;
-  height: 20vh;
+  height: 10vw;
   position: fixed;
   bottom: 40vh;
   right: 5vw;

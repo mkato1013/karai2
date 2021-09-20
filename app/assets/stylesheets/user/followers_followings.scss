@@ -36,3 +36,9 @@
   justify-content: space-around;
   align-items: center;
 }
+
+@media (max-width: 500px) {
+  .followers-list {
+    display: block;
+  }
+}

@@ -90,3 +90,27 @@
   font-family: "M PLUS Rounded 1c";
 }
 
+// スマホ対応
+@media (max-width: 500px) {
+  .new-food-img,
+  .new-meal-type-category,
+  .new-shop-name,
+  .new-shop-name-kana,
+  .new-food-name,
+  .new-spicy-level-category,
+  .new-shop-nearest-station,
+  .new-shop-mood-category,
+  .new-waiting-time-category,
+  .new-food-comment {
+    display: block;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 5vh;
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    color: #000000;
+    background: #ffc29050;
+    border: 3px solid #ff7c7c;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    border-left: solid 10px #ff6e6e;
+  }
+}

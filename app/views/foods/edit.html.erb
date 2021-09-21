@@ -22,7 +22,8 @@
 
             <%# 食べ物の種類 %>
             <div class="meal-type">
-              <div class="edit-meal-type-category">カテゴリー
+              <div class="edit-meal-type-category">
+                <h2 class="edit-meal-type-category-title">カテゴリー</h2>
                 <%# <span class="optional">任意</span> %>
                 <%= f.collection_select(:meal_type_id, MealType.all, :id, :name, {}, {class:"edit-meal-type-category-text"}) %>
               </div>

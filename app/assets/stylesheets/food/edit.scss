@@ -14,7 +14,7 @@
 .edit-food-title {
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 15vh;
+  font-size: 8vw;
   padding: 1vh 0vh;
   text-align: center;
 }
@@ -37,7 +37,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: "M PLUS Rounded 1c";
-  font-size: 5vh;
+  font-size: 3vw;
   padding: 0.5em 1em;
   margin: 0.5em 0;
   color: #000000;
@@ -77,9 +77,15 @@
   display: none;
 }
 
+.food-image {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+}
+
 .edit-postfood-btn {
   width: 10vw;
-  height: 20vh;
+  height: 10vw;
   position: fixed;
   bottom: 40vh;
   right: 5vw;
@@ -90,4 +96,30 @@
   font-size: 1.5vw;
   background-color: #ff1e0059;
   font-family: "M PLUS Rounded 1c";
+}
+
+// スマホ対応
+@media (max-width: 500px) {
+  .edit-food-img,
+  .edit-meal-type-category,
+  .edit-shop-name,
+  .edit-shop-name-kana,
+  .edit-food-name,
+  .edit-spicy-level-category,
+  .edit-shop-nearest-station,
+  .edit-shop-mood-category,
+  .edit-waiting-time-category,
+  .edit-food-comment {
+    display: block;
+    text-align: center;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 3vw;
+    padding: 0.5em 1em;
+    margin: 0.5em 0;
+    color: #000000;
+    background: #ffc29050;
+    border: 3px solid #ff7c7c;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    border-left: solid 10px #ff6e6e;
+  }
 }

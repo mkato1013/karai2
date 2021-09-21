@@ -48,7 +48,7 @@
 
 .show-food-post-user {
   margin-left: 1vw;
-  font-size: 20px;
+  font-size: 2vw;
   text-decoration: none;
 }
 
@@ -63,7 +63,7 @@
   width: 25vw;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 4vh;
+  font-size: 2vw;
   padding-top: 1vh;
   text-align: center;
 }
@@ -87,4 +87,43 @@
   border: 3px solid #ff7c7c;
   border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
   font-family: "M PLUS Rounded 1c";
+}
+
+// スマホ表示の場合
+@media (max-width: 500px) {
+  .show-food-contents-title {
+    width: 100vw;
+    height: 10vh;
+    color: rgb(0, 0, 0);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 6vw;
+    padding-top: 3vh;
+    text-align: center;
+  }
+  .show-food-img-content {
+    margin: 1vh 20vw;
+    padding: 5vh 1vw;
+    border: 5px solid #ff0000;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+    display: flex;
+    justify-content: center;
+  }
+  .show-food-img-content {
+    margin: 1vh 10vw;
+    padding: 5vh 1vw;
+    border: 5px solid #ff0000;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+    display: flex;
+    justify-content: space-around;
+  }
+  .show-food-img {
+    width: 25vw;
+    height: 25vw;
+    margin: 1vh 0.5vw;
+    object-fit: cover;
+  }
 }

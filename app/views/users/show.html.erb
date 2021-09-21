@@ -41,15 +41,15 @@
               <%= image_tag food.image, class: "user-show-food-img" if food.image.attached? %>
             <% end %>
             <div class="usershow-food-img-info">
-              <h1>店名</h1>
+              <h1 class="usershow-shop-name-title">店名</h1>
                 <h2 class="usershow-shop-name">
                   <%= food.shop_name %>
                 </h2>
-              <h1>メニュー名</h1>
+              <h1 class="usershow-food-name-title">メニュー名</h1>
                 <h2 class="usershow-food-name">
                   <%= food.food_name %>
                 </h2>
-              <h1>辛さ採点</h1>
+              <h1 class="usershow-spicy-level-category-title">辛さ採点</h1>
                 <h2 class="usershow-spicy-level-category">
                   <%= food.spicy_level.name %>
                 </h2>
@@ -68,7 +68,10 @@
                     <% end %>
                   </li>
                   <li class="more-list-menu">
-                    <%= link_to food_path(food.id), method: :delete do %>
+                    <%= link_to food_path(food.id), method: :delete, data:
+                      { confirm: '本当に削除しますか?削除すると投稿の復元はできません',
+                        cancel: 'やめる',
+                        commit: '削除する'}, title: '削除確認' do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                   </li>
@@ -84,32 +87,3 @@
 
 <%= render "shared/main_menu" %>
 <%= render "shared/footer" %>
-
-<%# モーダルウィンドウ %>
-<%# <div class="modaldelete">
-  <i class="far fa-times-circle modaldelete-close"></i>
-  <div class="modaldelete-contents">
-    <div class="modaldelete-top">
-      <h2 class="modaldelete-title">削除しますか？</h2>
-    </div>
-    <div class="modaldelete-bottom">
-      <%= link_to food_path(@food.id), method: :delete do %>
-        <%# <h2 class="modaldelete-yes">YES</h2>
-      <% end %>
-      <%# <h2 class="modaldelete-no">NO</h2>
-    </div>
-  </div>
-</div>
-<div class="maskdelete"></div> %>
-
-<%# <script>
-  $(function() {
-    $('.fa-trash-alt').on('click',function(){
-      $('.modaldelete,.maskdelete').fadeIn();
-    });
-    $('.modaldelete-close,.modaldelete-no,.maskdelete').on('click',function(){
-      $('.modaldelete,.maskdelete').fadeOut();
-    });
-  });
-</script> %>
-<%# /モーダルウィンドウ %>

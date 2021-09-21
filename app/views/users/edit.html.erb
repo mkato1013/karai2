@@ -4,7 +4,6 @@
   <div class="mypage-main">
     <%= form_with model: current_user, local: true do |f| %>
 
-<%# プロフィール %>
       <div class="edit-mypage-intro">
         <div class="edit-mypage-intro-left">
           <div class="edit-user-icon">
@@ -44,13 +43,11 @@
           </div>
         </div>
       </div>
-<%# /プロフィール欄 %>
 
-<%# 下部ボタン %>
       <div class="mypage-edit-btn-contents">
         <%= f.submit "変更" ,class:"mypage-edit-btn" %>
       </div>
-<%# /下部ボタン %>
+
     <% end %>
   </div>
 </div>

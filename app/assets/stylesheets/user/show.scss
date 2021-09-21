@@ -15,19 +15,20 @@
 }
 
 .mypage-intro {
-  padding: 1vh 40vh;
+  padding: 0.5vw 40vw;
   display: flex;
   justify-content: space-around;
 }
 
 .mypage-image {
-  height: 40vh;
-  width: 40vh;
+  height: 20vw;
+  width: 20vw;
   object-fit: cover;
 }
 
 .fa-user {
-  font-size: 40vh;
+  font-size: 20vw;
+  object-fit: cover;
 }
 
 .mypage-nickname {
@@ -35,7 +36,7 @@
   border-bottom: red double 2vh;
   border-radius: 50% / 20%;
   text-align: center;
-  font-size: 5vh;
+  font-size: 2.5vw;
 }
 
 .mypage-intro-right {
@@ -127,8 +128,8 @@
   background-repeat: repeat;
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
-  width: 80vw;
-  height: 70vh;
+  width: 35vw;
+  height: 40vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -137,7 +138,7 @@
   display: none;
 }
 
-.modaldelete-contents {
+.modaldelete-top {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -148,8 +149,20 @@
   width: auto;
   color: rgb(0, 0, 0);
   font-family: 'Permanent Marker', cursive;
-  font-size: 7vw;
+  font-size: 3vw;
   text-align: center;
+}
+
+.modaldelete-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modaldelete-yes,
+.modaldelete-no {
+  font-size: 3vw;
+  cursor: pointer;
 }
 
 .modaldelete-close {
@@ -163,8 +176,49 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.219);
   z-index: 1;
   display: none;
 }
 // /モーダルウィンドウ
+
+// スマホ表示の場合
+@media (max-width: 500px) {
+  .fa-info-circle,
+  .fa-edit,
+  .fa-trash-alt {
+  padding-top: 0.5vh;
+  font-size: 4vw;
+  }
+  .mypage-intro {
+    padding: 0.5vw 25vw;
+    display: flex;
+    justify-content: space-around;
+  }
+  .mypage-intro-right {
+    padding: 2vh 5vw;
+    text-align: -webkit-center;
+  }
+  .usershow-shop-name-title,
+  .usershow-food-name-title,
+  .usershow-spicy-level-category-title {
+    width: 32vw;
+  }
+  .usershow-shop-name,
+  .usershow-food-name,
+  .usershow-spicy-level-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "M PLUS Rounded 1c";
+    font-size: 1vw;
+    padding: 0.1em 0.5em;
+    margin: 0.5em 0;
+    color: #000000;
+    background: #ffc29050;
+    border: 3px solid #ff7c7c;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    width: 32vw;
+  }
+
+}

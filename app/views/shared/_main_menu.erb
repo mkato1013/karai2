@@ -10,20 +10,11 @@
   </div>
 
   <div class="menu-details">
-    <div class="menu-details-menu">
-      <i class="fas fa-bars"></i>
-      <h2 class="menu-content">MENU</h2>
-    </div>
-  </div>
-
-<%# JavaScriptでボタン表示 %>
-  <div class="menu-details">
     <div class="search-contents">
       <div class="fas fa-search" id="back-btn"></div>
         <h2 class="menu-content" id="back-btn">SEARCH</h2>
     </div>
   </div>
-<%# /JavaScriptでボタン表示 %>
 
   <div class="menu-details">
     <%= link_to(new_food_path, class: 'main-menu-btn') do %>
@@ -54,7 +45,10 @@
 
   <div class="menu-details">
     <% if user_signed_in? %>
-      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out") do %>
+      <%= link_to(destroy_user_session_path, method: :delete, class: "log-out", data:
+       {confirm: 'ログアウトしますか?',
+        cancel: 'やめる',
+        commit: 'ログアウトする'}, title: 'ログアウトの確認') do %>
         <div class="menu-details-logout">
           <i class="fas fa-door-open"></i>
           <h2 class="menu-content">LOG OUT</h2>
@@ -92,7 +86,6 @@
   });
 </script>
 
-<%# モーダルウィンドウ %>
 <div class="modalsearch">
   <i class="far fa-times-circle modalsearch-close"></i>
   <div class="modalsearch-contents">
@@ -109,7 +102,7 @@
           <%= f.label :meal_type_id_eq, '種類', class: "search-label" %><br/>
           <%= f.collection_select :meal_type_id_eq, MealType.all, :id, :name, {include_blank: '--', disabled: 0}, class: "search-text" %><br/>
           <%= f.label :spicy_level_id_eq, '辛さ', class: "search-label" %><br/>
-          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, {include_blank: '--'}, class: "search-text" %><br/>
+          <%= f.collection_select :spicy_level_id_eq, SpicyLevel.all, :id, :name, {include_blank: '--', disabled: 0}, class: "search-text" %><br/>
           <%= f.submit "SEARCH", class: "search-submit" %><br/>
         <% end %>
       </div>
@@ -128,4 +121,3 @@
     });
   });
 </script>
-<%# /モーダルウィンドウ %>

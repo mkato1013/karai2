@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @food = Food.find_by(user_id:current_user.id)
     @foods = @user.foods.order("created_at DESC")
   end
 
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     return redirect_to user_path if current_user.id != @user.id
-
+    
     if @user.update(user_params)
       redirect_to user_path(current_user.id)
     else

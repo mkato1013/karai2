@@ -55,3 +55,42 @@
 .fa-user-edit {
   font-size: 1.0vw;
 }
+
+// スマホ表示の場合
+@media (max-width: 500px) {
+  .mypage-followcount-btn {
+    display: block;
+  }
+  .btn-mypage-follow {
+    width: 33vw;
+    padding: 1vh;
+    color: white;
+    border: white solid 0.1px;
+    border-radius: 25%;
+    background: #7ff6ff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7ff6ff9f), to(#00aeffa4));
+    cursor: pointer;
+  }
+  
+  .btn-mypage-introduction-edit {
+    width: 36vw;
+    padding: 1vh;
+    color: rgb(0, 0, 0);
+    border: white solid 0.1px;
+    border-radius: 25%;
+    background: #ffee00;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff9900), to(#ff8800a4));
+    cursor: pointer;
+  }
+  .btn-follow-delete {
+    width: 22vw;
+    padding: 1vh;
+    color: white;
+    border: white solid 0.1px;
+    border-radius: 25%;
+    background: #fd6363;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff9191), to(#ff0a0a));
+    cursor: pointer;
+  }
+  
+}

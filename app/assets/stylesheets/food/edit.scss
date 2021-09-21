@@ -80,6 +80,7 @@
 .food-image {
   width: 30vw;
   height: 30vw;
+  object-fit: cover;
 }
 
 .edit-postfood-btn {
@@ -121,5 +122,4 @@
     border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
     border-left: solid 10px #ff6e6e;
   }
-
 }

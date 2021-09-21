@@ -15,7 +15,8 @@ class User < ApplicationRecord
   has_many :comments
 
   validates :nickname, presence: true
-  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
+
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}, on: :create
   
   def already_liked?(food)
     self.likes.exists?(food_id: food)
